@@ -155,7 +155,7 @@ This is an automated response. Please do not reply to this email.
         <body>
           <div class="container">
             <div class="header">
-              <img src="https://cemtrixai.com/assets/logo.png" alt="Cemtrix Logo">
+              <img src="https://cemtrixai.com/assets/logo.png" alt="Cemtrix Logo" style="max-width: 200px;">
               <h1>Thank You for Contacting Cemtrix!</h1>
             </div>
             <div class="content">
