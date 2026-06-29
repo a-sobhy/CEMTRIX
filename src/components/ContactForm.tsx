@@ -84,7 +84,7 @@ export function ContactForm() {
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <h4 className="text-white font-bold mb-1">Email Us</h4>
-                <p className="text-sm text-gray-400">hello@cemtrix.ai</p>
+                <p className="text-sm text-gray-400">info@cemtrixai.com</p>
               </motion.div>
 
               <motion.div variants={scaleIn} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-colors group">
