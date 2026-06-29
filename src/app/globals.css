@@ -1,26 +1,347 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-primary: #6366f1;
+  --color-primary-dark: #4f46e5;
+  --color-secondary: #8b5cf6;
+  --color-accent: #06b6d4;
+  --color-dark: #0a0a0f;
+  --color-dark-light: #12121a;
+  --color-dark-card: #1a1a2e;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* custom fonts */
+@font-face {
+  font-family: "figtree";
+  src: url("/fonts/Figtree-Regular.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: "figtree";
+  src: url("/fonts/Figtree-Medium.otf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "figtree";
+  src: url("/fonts/Figtree-Bold.otf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "figtree";
+  src: url("/fonts/Figtree-ExtraBold.otf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+
+* {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0a0a0f;
+  color: #ffffff;
+  font-family: 'figtree', system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+  cursor: default;
+}
+
+button,
+a,
+[role="button"],
+input[type="submit"],
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* For all elements that should look clickable */
+label,
+input[type="checkbox"],
+input[type="radio"],
+select {
+  cursor: pointer;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6366f1, #8b5cf6);
+  border-radius: 4px;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #1E7BFF 0%, #B020FF 50%, #7B2CFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effects */
+.glow {
+  box-shadow: 0 0 40px rgba(176, 32, 255, 0.3),
+    0 0 80px rgba(123, 44, 255, 0.2),
+    0 0 120px rgba(30, 123, 255, 0.1);
+}
+
+.glow-sm {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+}
+
+/* Animated gradient border */
+.gradient-border {
+  position: relative;
+  background: #1a1a2e;
+  border-radius: 1rem;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: calc(1rem + 2px);
+  background: linear-gradient(135deg, #1E7BFF, #B020FF, #7B2CFF, #1E7BFF);
+  background-size: 300% 300%;
+  z-index: -1;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Floating animation */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse glow animation */
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Grid pattern background */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Code block styling */
+.code-block {
+  font-family: 'figtree', 'JetBrains Mono', 'Fira Code', monospace;
+  background: #0d0d12;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+/* Blur backdrop */
+.backdrop-blur-custom {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* Neon glow text */
+.neon-glow {
+  text-shadow: 0 0 10px #00A8FF70,
+    0 0 20px #1E7BFF70,
+    0 0 30px #7B2CFF70;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Radar sweep animation */
+@keyframes radarSweep {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.radar-sweep {
+  animation: radarSweep 4s linear infinite;
+  transform-origin: center;
+}
+
+/* Radar pulse rings */
+@keyframes radarPulse {
+  0% {
+    transform: scale(0.3);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.radar-pulse {
+  animation: radarPulse 3s ease-out infinite;
+}
+
+/* Vertical scrolling code */
+@keyframes scrollCode {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.scroll-code {
+  animation: scrollCode 20s linear infinite;
+}
+
+/* Signal transmission */
+@keyframes signalFlow {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+.signal-flow {
+  stroke-dasharray: 6 6;
+  animation: signalFlow 2s linear infinite;
+}
+
+/* Signal pulse dot */
+@keyframes signalDot {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+/* Pulse wave for orb */
+@keyframes orbPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.6),
+      0 0 60px rgba(139, 92, 246, 0.4),
+      inset 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 50px rgba(139, 92, 246, 0.9),
+      0 0 90px rgba(139, 92, 246, 0.6),
+      inset 0 0 30px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.orb-pulse {
+  animation: orbPulse 2s ease-in-out infinite;
+}
+
+/* Icon swap fade */
+@keyframes iconFade {
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  10%,
+  90% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
