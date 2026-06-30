@@ -205,8 +205,18 @@ www.cemtrixai.com | info@cemtrixai.com
         return `
       <table cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td width="${cellSize}" height="${cellSize}"
-              style="display:flex;justify-content: center;align-items: center;background-color:${bgColor};border-radius:50%;text-align:center;width:${cellSize}px;height:${cellSize}px;padding:${pad}px;">
+          <td
+  width="${cellSize}"
+  height="${cellSize}"
+  align="center"
+  valign="middle"
+  style="
+  min-width: ${cellSize}px;min-height: ${cellSize}px;max-width: ${cellSize}px;max-height: ${cellSize}px;
+    background:${bgColor};
+    border-radius:50%;
+    text-align:center;
+    vertical-align:middle;
+  ">
             <img src="${this.ICON_BASE}/${name}.png"
                  alt="${alt}"
                  width="${iconSize}"
@@ -222,14 +232,14 @@ www.cemtrixai.com | info@cemtrixai.com
     private getAutoReplyHtml(): string {
         // Pre-render all icon circles
         // Icons needed (white, on coloured circles):
-        const icnGraduationCap = this.iconCircle('graduation-cap-white', 'Learning', 24, 30, '#7c3aed');
-        const icnBarChart = this.iconCircle('bar-chart-white', 'Analytics', 24, 30, '#3b5bdb');
-        const icnSettings = this.iconCircle('settings-white', 'Maintenance', 24, 30, '#0d9488');
+        const icnGraduationCap = this.iconCircle('graduation-cap-white', 'Learning', 24, 32, '#7c3aed');
+        const icnBarChart = this.iconCircle('bar-chart-white', 'Analytics', 24, 32, '#3b5bdb');
+        const icnSettings = this.iconCircle('settings-white', 'Maintenance', 24, 32, '#0d9488');
 
         // "While you wait" — coloured icons on light background
-        const icnGlobe = this.iconCircle('globe-blue', 'Website', 24, 30, '#eff6ff');
-        const icnPackage = this.iconCircle('package-purple', 'AI Solutions', 24, 30, '#f5f3ff');
-        const icnFileText = this.iconCircle('file-text-teal', 'Case Studies', 24, 30, '#f0fdfa');
+        const icnGlobe = this.iconCircle('globe-blue', 'Website', 24, 32, '#eff6ff');
+        const icnPackage = this.iconCircle('package-purple', 'AI Solutions', 24, 32, '#f5f3ff');
+        const icnFileText = this.iconCircle('file-text-teal', 'Case Studies', 24, 32, '#f0fdfa');
 
         // "What happens next" steps — coloured icons on tinted circles
         const icnMail = this.iconCircle('mail-blue', 'Inquiry received', 24, 40, '#e0e7ff');
