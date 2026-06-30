@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 import { motion } from 'framer-motion';
 import { ArrowRight, Building, Calendar, Mail, MapPin, MessageSquare, Phone, Send, User } from 'lucide-react';
 import { useState } from 'react';
@@ -92,7 +92,7 @@ export function ContactForm() {
                   <Phone className="w-5 h-5 text-accent" />
                 </div>
                 <h4 className="text-white font-bold mb-1">Call Us</h4>
-                <p className="text-sm text-gray-400">+2 (123) 123-1234</p>
+                <p className="text-sm text-gray-400">971 50 1679 656</p>
               </motion.div>
 
               <motion.div variants={scaleIn} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-secondary/30 transition-colors group sm:col-span-2">
