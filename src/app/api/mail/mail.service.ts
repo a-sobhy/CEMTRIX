@@ -232,14 +232,14 @@ www.cemtrixai.com | info@cemtrixai.com
     private getAutoReplyHtml(): string {
         // Pre-render all icon circles
         // Icons needed (white, on coloured circles):
-        const icnGraduationCap = this.iconCircle('graduation-cap-white', 'Learning', 28, 56, '#7c3aed');
-        const icnBarChart = this.iconCircle('bar-chart-white', 'Analytics', 28, 56, '#3b5bdb');
-        const icnSettings = this.iconCircle('settings-white', 'Maintenance', 28, 56, '#0d9488');
+        const icnGraduationCap = this.iconCircle('graduation-cap-white', 'Learning', 25, 25, '#7c3aed');
+        const icnBarChart = this.iconCircle('bar-chart-white', 'Analytics', 25, 25, '#3b5bdb');
+        const icnSettings = this.iconCircle('settings-white', 'Maintenance', 25, 25, '#0d9488');
 
         // "While you wait" — coloured icons on light background
-        const icnGlobe = this.iconCircle('globe-blue', 'Website', 32, 60, '#eff6ff');
-        const icnPackage = this.iconCircle('package-purple', 'AI Solutions', 32, 60, '#f5f3ff');
-        const icnFileText = this.iconCircle('file-text-teal', 'Case Studies', 32, 60, '#f0fdfa');
+        const icnGlobe = this.iconCircle('globe-blue', 'Website', 30, 30, '#eff6ff');
+        const icnPackage = this.iconCircle('package-purple', 'AI Solutions', 30, 30, '#f5f3ff');
+        const icnFileText = this.iconCircle('file-text-teal', 'Case Studies', 30, 30, '#f0fdfa');
 
         // "What happens next" steps — coloured icons on tinted circles
         const icnMail = this.iconCircle('mail-blue', 'Inquiry received', 28, 60, '#e0e7ff');
