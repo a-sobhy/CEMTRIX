@@ -232,20 +232,20 @@ www.cemtrixai.com | info@cemtrixai.com
     private getAutoReplyHtml(): string {
         // Pre-render all icon circles
         // Icons needed (white, on coloured circles):
-        const icnGraduationCap = this.iconCircle('graduation-cap-white', 'Learning', 25, 25, '#7c3aed');
-        const icnBarChart = this.iconCircle('bar-chart-white', 'Analytics', 25, 25, '#3b5bdb');
-        const icnSettings = this.iconCircle('settings-white', 'Maintenance', 25, 25, '#0d9488');
+        const icnGraduationCap = this.iconCircle('graduation-cap-white', 'Learning', 24, 30, '#7c3aed');
+        const icnBarChart = this.iconCircle('bar-chart-white', 'Analytics', 24, 30, '#3b5bdb');
+        const icnSettings = this.iconCircle('settings-white', 'Maintenance', 24, 30, '#0d9488');
 
         // "While you wait" — coloured icons on light background
-        const icnGlobe = this.iconCircle('globe-blue', 'Website', 30, 30, '#eff6ff');
-        const icnPackage = this.iconCircle('package-purple', 'AI Solutions', 30, 30, '#f5f3ff');
-        const icnFileText = this.iconCircle('file-text-teal', 'Case Studies', 30, 30, '#f0fdfa');
+        const icnGlobe = this.iconCircle('globe-blue', 'Website', 24, 30, '#eff6ff');
+        const icnPackage = this.iconCircle('package-purple', 'AI Solutions', 24, 30, '#f5f3ff');
+        const icnFileText = this.iconCircle('file-text-teal', 'Case Studies', 24, 30, '#f0fdfa');
 
         // "What happens next" steps — coloured icons on tinted circles
-        const icnMail = this.iconCircle('mail-blue', 'Inquiry received', 28, 60, '#e0e7ff');
-        const icnSearch = this.iconCircle('search-purple', 'Review', 28, 60, '#ede9fe');
-        const icnUsers = this.iconCircle('users-teal', 'Specialist contact', 28, 60, '#ccfbf1');
-        const icnCheck = this.iconCircle('check-blue', 'Solution identified', 28, 60, '#dbeafe');
+        const icnMail = this.iconCircle('mail-blue', 'Inquiry received', 24, 40, '#e0e7ff');
+        const icnSearch = this.iconCircle('search-purple', 'Review', 24, 40, '#ede9fe');
+        const icnUsers = this.iconCircle('users-teal', 'Specialist contact', 24, 40, '#ccfbf1');
+        const icnCheck = this.iconCircle('check-blue', 'Solution identified', 24, 40, '#dbeafe');
 
         // Footer tiny icons (inline with text)
         const icnGlobeFooter = `<img src="${this.ICON_BASE}/globe-light.png" alt="" width="14" height="14" style="display:inline-block;vertical-align:middle;border:0;margin-right:4px;"/>`;

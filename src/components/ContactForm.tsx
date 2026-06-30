@@ -84,7 +84,7 @@ export function ContactForm() {
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <h4 className="text-white font-bold mb-1">Email Us</h4>
-                <p className="text-sm text-gray-400">info@cemtrixai.com</p>
+                <a href="mailto:info@cemtrixai.com" className="text-sm text-gray-400">info@cemtrixai.com</a>
               </motion.div>
 
               <motion.div variants={scaleIn} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-colors group">
@@ -92,7 +92,7 @@ export function ContactForm() {
                   <Phone className="w-5 h-5 text-accent" />
                 </div>
                 <h4 className="text-white font-bold mb-1">Call Us</h4>
-                <p className="text-sm text-gray-400">971 50 1679 656</p>
+                <a href="tel:+971501679656" className="text-sm text-gray-400">+971 50 167 9656</a>
               </motion.div>
 
               <motion.div variants={scaleIn} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-secondary/30 transition-colors group sm:col-span-2">
@@ -100,7 +100,7 @@ export function ContactForm() {
                   <MapPin className="w-5 h-5 text-secondary" />
                 </div>
                 <h4 className="text-white font-bold mb-1">Our Location</h4>
-                <p className="text-sm text-gray-400">123 ABC Way, Cairo, Egypt</p>
+                <a href="https://maps.app.goo.gl/JFrYEUzc1L96WFP48" className="text-sm text-gray-400" target="_blank">Building A1, Dubai Digital Park, Dubai Silicon Oasis, Dubai UAE</a>
               </motion.div>
             </motion.div>
           </motion.div>
