@@ -206,22 +206,12 @@ www.cemtrixai.com | info@cemtrixai.com
       <table cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td width="${cellSize}" height="${cellSize}"
-              style="background-color:${bgColor};
-                     border-radius:50%;
-                     text-align:center;
-                     vertical-align:middle;
-                     width:${cellSize}px;
-                     height:${cellSize}px;
-                     padding:${pad}px;">
+              style="display:flex;justify-content: center;align-items: center;background-color:${bgColor};border-radius:50%;text-align:center;width:${cellSize}px;height:${cellSize}px;padding:${pad}px;">
             <img src="${this.ICON_BASE}/${name}.png"
                  alt="${alt}"
                  width="${iconSize}"
                  height="${iconSize}"
-                 style="display:block;
-                        border:0;
-                        outline:none;
-                        margin:0 auto;
-                        -ms-interpolation-mode:bicubic;"/>
+                 style="display:block;border:0;outline:none;margin:0 auto;-ms-interpolation-mode:bicubic;"/>
           </td>
         </tr>
       </table>`.trim();
