@@ -618,7 +618,7 @@ www.cemtrixai.com | info@cemtrixai.com
                                  text-align:center;
                                  vertical-align:middle;
                                  width:70px;height:70px;">
-                        <img src="https://cemtrixai.com/assets/logo-icon.png"
+                        <img src="https://cemtrixai.com/assets/icon.png"
                              alt="CEMTRIX" width="40" height="40"
                              style="display:block;margin:15px auto;border:0;"/>
                       </td>
