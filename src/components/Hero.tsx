@@ -1,58 +1,15 @@
 "use client";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { useRef } from "react";
 import PerspectiveGrid from "./hero/PerspectiveGrid";
-// ─── Utility: Text Scramble Effect ───────────────────────────────────────────
-const chars = "!<>-_\\/[]{}—=+*^?#________"
-function useScrambleText(text: string, trigger: boolean) {
-  const [display, setDisplay] = useState(text)
-  useEffect(() => {
-    if (!trigger) return
-    let iteration = 0
-    const interval = setInterval(() => {
-      setDisplay(
-        text
-          .split("")
-          .map((_, index) => {
-            if (index < iteration) return text[index]
-            return chars[Math.floor(Math.random() * chars.length)]
-          })
-          .join(""),
-      )
-      if (iteration >= text.length) clearInterval(interval)
-      iteration += 1
-    }, 20)
-    return () => clearInterval(interval)
-  }, [text, trigger])
-  return display
-}
+
 // ─── Main Hero Component ──────────────────────────────────────────────────────
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [isLoaded, setIsLoaded] = useState(false)
   // Mouse parallax
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
-  const springX = useSpring(mouseX, { stiffness: 50, damping: 20 })
-  const springY = useSpring(mouseY, { stiffness: 50, damping: 20 })
-  const rotateX = useTransform(springY, [-0.5, 0.5], [5, -5])
-  const rotateY = useTransform(springX, [-0.5, 0.5], [-5, 5])
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current) return
-      const { left, top, width, height } =
-        containerRef.current.getBoundingClientRect()
-      const x = (e.clientX - left) / width - 0.5
-      const y = (e.clientY - top) / height - 0.5
-      mouseX.set(x)
-      mouseY.set(y)
-    }
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [mouseX, mouseY])
-  const headline1 = useScrambleText("AI-Native Industrial Intelligence Platform", isLoaded)
-  const headline2 = useScrambleText("For Cement Industry", isLoaded)
-  const HERO_TAGLINE = useScrambleText("Empower People\nOptimize Assets\nAccelerate Performance", isLoaded)
+  const headline1 = "AI-Native Industrial Intelligence Platform"
+  const headline2 = "For Cement Industry"
+  const HERO_TAGLINE = "Empower People\nOptimize Assets\nAccelerate Performance"
   return (
     <section
       ref={containerRef}
@@ -72,39 +29,25 @@ export function Hero() {
       <PerspectiveGrid />
       <div className="absolute inset-0 bg-linear-to-b from-transparent via-dark/50 to-dark pointer-events-none" />
       {/* Aurora Glows - Behind content */}
-      <motion.div
-        style={{
-          x: useTransform(springX, [-0.5, 0.5], [-50, 50]),
-          y: useTransform(springY, [-0.5, 0.5], [-50, 50]),
-        }}
-        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#00A8FF]/10 rounded-full blur-[120px]"
-      />
-      <motion.div
-        style={{
-          x: useTransform(springX, [-0.5, 0.5], [50, -50]),
-          y: useTransform(springY, [-0.5, 0.5], [50, -50]),
-        }}
-        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#7B2CFF]/10 rounded-full blur-[100px]"
-      />
+
       {/* MAIN CONTENT - This will appear on top of everything */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid gap-24 lg:grid-cols-6">
           {/* Left: Content */}
-          <motion.div
-            style={{ rotateX, rotateY }}
+          <div
             className="lg:text-left lg:col-span-4"
           >
             {/* Headlines */}
 
-            <h1 className="text-xl sm:text-2xl lg:text-2xl tracking-tight text-gray-400">
+            <motion.h1 initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8, duration: 0.8 }} className="text-xl sm:text-2xl lg:text-2xl tracking-tight text-gray-400">
               {headline1}
-            </h1>
-            <h1 className="font-bold text-5xl sm:text-6xl lg:text-5xl line-h text-white whitespace-pre-line my-4 leading-15">
+            </motion.h1>
+            <motion.h1 initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 1.0, duration: 0.8 }} className="font-bold text-5xl sm:text-6xl lg:text-5xl line-h text-white whitespace-pre-line my-4 leading-15">
               {HERO_TAGLINE}
-            </h1>
-            <h1 className="text-5xl sm:text-6xl lg:text-5xl leading-tight tracking-tight gradient-text mb-4">
+            </motion.h1>
+            <motion.h1 initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 1.2, duration: 0.8 }} className="text-5xl sm:text-6xl lg:text-5xl leading-tight tracking-tight gradient-text mb-4">
               {headline2}
-            </h1>
+            </motion.h1>
             {/* Subheading */}
             <motion.p
               initial={{ opacity: 0, x: 10 }}
@@ -165,7 +108,7 @@ export function Hero() {
                 </div>
               </div>
             </motion.div> */}
-          </motion.div>
+          </div>
           {/* Right: Holographic Visual */}
           {/* <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
