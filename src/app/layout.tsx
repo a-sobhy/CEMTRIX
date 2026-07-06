@@ -16,8 +16,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cemtrixai.com"),
   title: "CEMTRIX",
   description: "AI-Native Industrial Intelligence Platform for the Cement Industry",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({
