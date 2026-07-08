@@ -91,7 +91,6 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={`/${link.href}`}
-                    onClick={handleFooterLink(link.href)}
                     className="text-sm text-gray-400 transition-colors hover:text-white"
                   >
                     {link.label}

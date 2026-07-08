@@ -98,11 +98,10 @@ export function Header() {
 
     // If we're NOT on the home page, navigate to "/" with the hash
     if (pathname !== "/") {
-      router.push("/")
+      router.push(`/${href}`)
       return
     }
 
-    // We're on "/", scroll to the element
     const element = document.querySelector(href)
     element?.scrollIntoView({ behavior: "smooth" })
     window.history.replaceState(null, "", href)
