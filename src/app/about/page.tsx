@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import AboutClient from './AboutClient';
 
 export const metadata: Metadata = {
-    title: "About Us | CEMTRIX",
+    title: "About Us",
     alternates: {
         canonical: "/about",
     },
