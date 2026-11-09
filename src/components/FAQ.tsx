@@ -2,6 +2,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
+import { SectionLabel } from './SectionLabel';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
@@ -55,9 +56,9 @@ export function FAQ() {
           variants={staggerContainer}
           className="text-center mb-20"
         >
-          <motion.span variants={fadeInUp} className="text-accent font-semibold text-sm uppercase tracking-wider">
-            FAQs
-          </motion.span>
+          <motion.div variants={fadeInUp}>
+            <SectionLabel align="center">FAQs</SectionLabel>
+          </motion.div>
           <motion.h2 variants={fadeInUp} className="text-4xl sm:text-5xl font-bold mt-4 mb-6">
             <span className="text-white">We&apos;ve Got the Answers</span>
             <br />

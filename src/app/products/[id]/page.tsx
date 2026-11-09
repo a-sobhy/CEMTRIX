@@ -6,6 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { Benefits } from "@/components/Benefits";
+import { SectionLabel } from "@/components/SectionLabel";
 import { ServiceDrawer } from "@/components/ServiceDrawer";
 import { services } from "@/data/services";
 
@@ -68,9 +69,12 @@ export default function ProductDetailsPage() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
                         >
-                            <div className="inline-block px-3 py-1 rounded-md bg-white/5 border border-white/10 text-xs text-gray-400 mb-6">
+                            <SectionLabel
+                                index={String(services.indexOf(service) + 1).padStart(2, "0")}
+                                className="mb-6"
+                            >
                                 {service.category}
-                            </div>
+                            </SectionLabel>
 
                             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8">
                                 {service.title}
