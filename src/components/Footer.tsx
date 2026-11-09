@@ -8,7 +8,7 @@ const linkedInIcon = new URL("../assets/linkedin.svg", import.meta.url).href
 const serviceLinks = [
   { label: "Learning platform", href: "#learning-platform" },
   { label: "Plant Intelligence", href: "#plant-platform" },
-  { label: "Predictive Maintenance", href: "#predictive-maintenance" },
+  { label: "Condition Intelligence", href: "#condition-intelligence" },
 ]
 
 const sectionLinks = [

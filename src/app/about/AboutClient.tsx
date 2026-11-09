@@ -1,7 +1,9 @@
 "use client"
 import { motion } from 'framer-motion';
-import { ArrowRight, Brain, Check, Globe2, Layers, Shield, Sparkles, Target, Users, Zap } from 'lucide-react';
+import { ArrowRight, Brain, Check, Globe2, Layers, Shield, Target, Users, Zap } from 'lucide-react';
 import Link from 'next/link';
+import { SectionLabel } from '@/components/SectionLabel';
+import { whoWeAre, whyCemtrix } from '@/data/company';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 48 },
@@ -53,12 +55,8 @@ export default function AboutClient() {
                     variants={staggerContainer}
                     className="mx-auto max-w-5xl text-center"
                 >
-                    <motion.div
-                        variants={fadeInUp}
-                        className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2"
-                    >
-                        <Sparkles className="h-4 w-4 text-accent" />
-                        <span className="text-sm text-gray-300">About CEMTRIX</span>
+                    <motion.div variants={fadeInUp} className="mb-8">
+                        <SectionLabel align="center">About CEMTRIX</SectionLabel>
                     </motion.div>
 
                     <motion.h1 variants={fadeInUp} className="mb-8 text-5xl font-bold leading-tight text-white sm:text-6xl lg:text-7xl">
@@ -72,6 +70,54 @@ export default function AboutClient() {
                         context, and measurable impact.
                     </motion.p>
                 </motion.div>
+            </section>
+
+            {/* Who we are */}
+            <section className="relative z-10 px-4 pb-24 sm:px-6 lg:px-8">
+                <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerContainer}
+                    >
+                        <motion.div variants={fadeInUp}>
+                            <SectionLabel>{whoWeAre.label}</SectionLabel>
+                        </motion.div>
+                        <motion.h2 variants={fadeInUp} className="mt-4 text-4xl font-bold text-white sm:text-5xl">
+                            AI built for cement, <span className="gradient-text">by people who know cement</span>
+                        </motion.h2>
+                        <motion.p variants={fadeInUp} className="mt-6 text-lg leading-relaxed text-gray-400">
+                            {whoWeAre.description}
+                        </motion.p>
+                        <motion.p
+                            variants={fadeInUp}
+                            className="mt-8 rounded-2xl border border-white/10 bg-white/3 p-5 text-gray-300"
+                        >
+                            <strong className="font-semibold text-white">{whoWeAre.tailored.lead}</strong>{' '}
+                            {whoWeAre.tailored.text}
+                        </motion.p>
+                    </motion.div>
+
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerContainer}
+                        className="grid gap-4"
+                    >
+                        {whoWeAre.stats.map((stat) => (
+                            <motion.div
+                                key={stat.label}
+                                variants={fadeInUp}
+                                className="flex items-center gap-6 rounded-3xl border border-white/10 bg-dark-card/45 p-6"
+                            >
+                                <div className="gradient-text w-24 shrink-0 text-5xl font-bold">{stat.value}</div>
+                                <p className="text-gray-300">{stat.label}</p>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
             </section>
 
             {/* Mission */}
@@ -120,6 +166,46 @@ export default function AboutClient() {
                 </div>
             </section>
 
+            {/* Why CEMTRIX */}
+            <section className="relative z-10 px-4 py-24 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl">
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerContainer}
+                        className="mb-14 max-w-3xl"
+                    >
+                        <motion.div variants={fadeInUp}>
+                            <SectionLabel>{whyCemtrix.label}</SectionLabel>
+                        </motion.div>
+                        <motion.h2 variants={fadeInUp} className="mt-4 text-4xl font-bold text-white sm:text-5xl">
+                            {whyCemtrix.heading}
+                        </motion.h2>
+                    </motion.div>
+
+                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        {whyCemtrix.items.map((item, index) => (
+                            <motion.div
+                                key={item.title}
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.08 }}
+                                whileHover={{ y: -8 }}
+                                className="rounded-3xl border border-white/10 bg-dark-card/45 p-8 transition-colors hover:border-white/20"
+                            >
+                                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-primary">
+                                    <item.icon className="h-6 w-6" />
+                                </div>
+                                <h3 className="mb-3 text-xl font-bold text-white">{item.title}</h3>
+                                <p className="leading-relaxed text-gray-400">{item.description}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* Principles */}
             <section className="relative z-10 px-4 py-24 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-7xl">
@@ -130,9 +216,9 @@ export default function AboutClient() {
                         variants={staggerContainer}
                         className="mb-14 max-w-3xl"
                     >
-                        <motion.span variants={fadeInUp} className="text-sm font-semibold uppercase tracking-wider text-primary">
-                            How we think
-                        </motion.span>
+                        <motion.div variants={fadeInUp}>
+                            <SectionLabel>How we think</SectionLabel>
+                        </motion.div>
                         <motion.h2 variants={fadeInUp} className="mt-4 text-4xl font-bold text-white sm:text-5xl">
                             Automation should feel invisible, reliable, and deeply useful.
                         </motion.h2>
@@ -169,7 +255,7 @@ export default function AboutClient() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
                     >
-                        <span className="text-sm font-semibold uppercase tracking-wider text-accent">Our story</span>
+                        <SectionLabel>Our story</SectionLabel>
                         <h2 className="mt-4 text-4xl font-bold text-white sm:text-5xl">Built for the new operating system of business.</h2>
                         <p className="mt-6 leading-relaxed text-gray-400">
                             We started CEMTRIX after seeing the same pattern across fast-growing teams: great

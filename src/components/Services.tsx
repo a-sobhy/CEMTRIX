@@ -1,9 +1,10 @@
 "use client";
 import { services } from "@/data/services";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CircleCheck } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { SectionLabel } from "./SectionLabel";
 import { ServiceDrawer } from "./ServiceDrawer";
 
 const fadeInUp = {
@@ -48,12 +49,9 @@ export function Services() {
           variants={staggerContainer}
           className="text-center mb-20"
         >
-          <motion.span
-            variants={fadeInUp}
-            className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300 mb-6"
-          >
-            Our Services
-          </motion.span>
+          <motion.div variants={fadeInUp} className="mb-6">
+            <SectionLabel align="center">Our Services</SectionLabel>
+          </motion.div>
           <motion.h2
             variants={fadeInUp}
             className="text-3xl lg:text-5xl font-bold mt-4 mb-6"
@@ -102,9 +100,9 @@ export function Services() {
                     }`}
                 >
 
-                  <h2 className="inline-block px-3 py-1 rounded-md bg-white/5 border border-white/10 text-xs text-gray-400 mb-4">
+                  <SectionLabel index={String(index + 1).padStart(2, "0")} className="mb-4">
                     {service.category}
-                  </h2>
+                  </SectionLabel>
                   <h3 className="text-3xl font-bold text-white mb-4">
                     {service.title}
                   </h3>
@@ -113,16 +111,27 @@ export function Services() {
                   </p>
 
                   {/* Features */}
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {service.features.map((feature) => (
-                      <span
-                        key={feature}
-                        className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm text-gray-300"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
+                  {service.featureLayout === "checklist" ? (
+                    <ul className="space-y-3 mb-8">
+                      {service.features.map((feature) => (
+                        <li key={feature} className="flex items-start gap-3 text-gray-300">
+                          <CircleCheck className="w-5 h-5 mt-0.5 shrink-0 text-[#00c7fd]" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="flex flex-wrap gap-2 mb-8">
+                      {service.features.map((feature) => (
+                        <span
+                          key={feature}
+                          className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm text-gray-300"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                   <div className="flex flex-wrap gap-2">
                     {/* CTA Button */}
                     <motion.button

@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
+import { SectionLabel } from "./SectionLabel"
 import { CentralOrb } from "./benefits/CentralOrb"
 import { ExpandingCards } from "./benefits/ExpandingCards"
 import { BenefitItem, benefits as defaultBenefits } from "./benefits/data"
@@ -49,10 +50,7 @@ export function Benefits({
           transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6">
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-sm text-gray-300">Why Choose Us</span>
-          </div>
+          <SectionLabel align="center" className="mb-6">Why Choose Us</SectionLabel>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
             <span className="text-white">{title}</span>
             <br />

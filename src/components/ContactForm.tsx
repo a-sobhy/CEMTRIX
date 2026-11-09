@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Building, Calendar, Mail, MapPin, MessageSquare, Phone, Send, User } from 'lucide-react';
 import { useState } from 'react';
 import { useSubmitContact } from '../hooks/useContact';
+import { SectionLabel } from './SectionLabel';
 
 // ─── Animation variants ───────────────────────────────────────────────────────
 const fadeInUp = {
@@ -64,9 +65,9 @@ export function ContactForm() {
             className="space-y-4"
           >
             <div>
-              <motion.span variants={fadeInUp} className="text-[#00A8FF] font-semibold text-sm uppercase tracking-wider">
-                Get In Touch
-              </motion.span>
+              <motion.div variants={fadeInUp}>
+                <SectionLabel>Get In Touch</SectionLabel>
+              </motion.div>
               <motion.h2 variants={fadeInUp} className="text-4xl sm:text-5xl font-bold mt-4 mb-2">
                 <span className="text-white">Let&apos;s build the</span>
                 <br />

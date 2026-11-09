@@ -1,4 +1,4 @@
-import { PredictiveMaintenanceVisual } from '@/components/services/PredictiveMaintenanceVisual';
+import { ConditionIntelligenceVisual } from '@/components/services/ConditionIntelligenceVisual';
 import { BarChart3, Brain, CircleFadingArrowUp, Clock, DollarSign, LucideBadgeDollarSign, Scale, UserCheck, Users, Zap } from 'lucide-react';
 import { BenefitItem } from "../components/benefits/data";
 import { AIAssistantVisual } from "../components/services/AIAssistantVisual";
@@ -11,6 +11,8 @@ export interface ServiceData {
     description: string;
     fullDescription: string;
     features: string[];
+    /** "chips" (default) shows short tags; "checklist" shows full-sentence bullets with check icons. */
+    featureLayout?: "chips" | "checklist";
     benefits: boolean;
     detailedBenefits: BenefitItem[];
     Visual: React.ComponentType;
@@ -137,13 +139,18 @@ export const services: ServiceData[] = [
         readMore: true
     },
     {
-        id: "predictive-maintenance",
-        category: "Condition Monitoring",
-        title: "AI-Powered Predictive Maintenance",
-        description:
-            "Monitor. Predict. Prevent.\nReduce unplanned downtime and maximize equipment reliability through intelligent condition monitoring, predictive analytics, and AI-driven maintenance recommendations.",
-        fullDescription: "Move from reactive to proactive maintenance. Our Condition Monitoring solution uses AI to analyze vibration, temperature, and acoustic data from critical assets. By detecting subtle anomalies weeks before failure, the system allows for scheduled maintenance during planned outages, potentially saving millions in lost production time.",
-        features: ["Reliability Intelligence", "AI Failure Prediction", "Condition Monitoring"],
+        id: "condition-intelligence",
+        category: "Predictive Maintenance",
+        title: "Condition Intelligence",
+        description: "Predict failures before they stop production.",
+        fullDescription: "Move from reactive to proactive maintenance. Condition Intelligence continuously monitors critical assets and gives early warning of developing faults, so maintenance is planned on evidence, not the calendar — extending asset life and reducing emergency repairs.",
+        features: [
+            "Continuous condition monitoring of critical assets",
+            "Early warning of developing faults",
+            "Maintenance planned on evidence, not the calendar",
+            "Longer asset life and fewer emergency repairs",
+        ],
+        featureLayout: "checklist",
         benefits: false,
         detailedBenefits: [
             {
@@ -201,7 +208,7 @@ export const services: ServiceData[] = [
                 accent: '#f43f5e',
             },
         ],
-        Visual: PredictiveMaintenanceVisual,
+        Visual: ConditionIntelligenceVisual,
         readMore: false
     },
 ]

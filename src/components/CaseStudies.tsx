@@ -2,6 +2,7 @@
 import { AnimatePresence, motion, useMotionValue } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
+import { SectionLabel } from './SectionLabel';
 
 interface CaseStudy {
   id: number;
@@ -76,14 +77,14 @@ export function CaseStudies() {
 
         {/* Header */}
         <div className="text-center mb-16">
-          <motion.span
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-gray-400 mb-6"
+            className="mb-6"
           >
-            Case Studies
-          </motion.span>
+            <SectionLabel align="center">Case Studies</SectionLabel>
+          </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

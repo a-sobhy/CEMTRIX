@@ -1,3 +1,4 @@
+import { AboutPreview } from "@/components/AboutPreview";
 import { CaseStudies } from "@/components/CaseStudies";
 import { ContactForm } from "@/components/ContactForm";
 import { FAQ } from "@/components/FAQ";
@@ -13,6 +14,7 @@ export default function Home() {
     <main>
       <Hero />
       <Services />
+      <AboutPreview />
       <CaseStudies />
       <FAQ />
       <ContactForm />
