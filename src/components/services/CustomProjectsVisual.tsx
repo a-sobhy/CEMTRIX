@@ -1,3 +1,4 @@
+"use client";
 import { motion } from 'framer-motion';
 import { Bot, Calendar, Check, Clock, Star, Code, FileText } from 'lucide-react';
 

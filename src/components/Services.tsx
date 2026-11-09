@@ -50,7 +50,7 @@ export function Services() {
           className="text-center mb-20"
         >
           <motion.div variants={fadeInUp} className="mb-6">
-            <SectionLabel align="center">Our Services</SectionLabel>
+            <SectionLabel align="center">Our Products</SectionLabel>
           </motion.div>
           <motion.h2
             variants={fadeInUp}
