@@ -53,10 +53,10 @@ export class MailService {
 
     async send(options: MailOptions): Promise<void> {
         try {
-            const toEmail = process.env.MAIL_TO || 'info@cemtrixai.com';
+            const toEmail = process.env.MAIL_TO || 'info@cemtrix.ai';
 
             const mailOptions = {
-                from: process.env.MAIL_FROM || 'noreply@cemtrixai.com',
+                from: process.env.MAIL_FROM || 'info@cemtrix.ai',
                 to: toEmail,
                 replyTo: options.replyTo,
                 subject: options.subject,
@@ -89,7 +89,7 @@ export class MailService {
     private async sendAutoReply(to: string): Promise<void> {
         try {
             const mailOptions = {
-                from: process.env.MAIL_FROM || 'noreply@cemtrixai.com',
+                from: process.env.MAIL_FROM || 'info@cemtrix.ai',
                 to: to,
                 subject: 'Thank You for Contacting CEMTRIX!',
                 text: this.getAutoReplyText(),
@@ -150,7 +150,7 @@ optimize plant performance, and accelerate operational excellence through AI.
 The CEMTRIX Team
 
 ---
-www.cemtrix.ai | info@cemtrixai.com
+www.cemtrix.ai | info@cemtrix.ai
         `.trim();
     }
 
@@ -673,10 +673,10 @@ www.cemtrix.ai | info@cemtrixai.com
                   <span style="display:inline-block;margin:0 12px;
                                color:#cbd5e1;font-size:12px;">
                     ${icnMailFooter}
-                    <a href="mailto:info@cemtrixai.com"
+                    <a href="mailto:info@cemtrix.ai"
                        style="color:#cbd5e1;text-decoration:none;
                               vertical-align:middle;">
-                      info@cemtrixai.com
+                      info@cemtrix.ai
                     </a>
                   </span>
 
