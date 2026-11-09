@@ -27,7 +27,7 @@ const faqs = [
   {
     id: '3',
     question: 'What industries can benefit from AI automation?',
-    answer: "Virtually every industry can benefit! We've successfully implemented AI solutions in healthcare, finance, e-commerce, manufacturing, professional services, and more. The key is identifying the right processes to automate.",
+    answer: "Virtually every industry can benefit! We've successfully implemented AI solutions in healthcare, finance, e-commerce, manufacturing, professional products, and more. The key is identifying the right processes to automate.",
   },
   {
     id: '4',

@@ -1,3 +1,4 @@
+"use client";
 import { motion } from 'framer-motion';
 import { Award, BookOpen, Bot, BrainCircuit, Library, Map } from 'lucide-react';
 

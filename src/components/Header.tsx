@@ -2,10 +2,18 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { useEffect, useState } from "react"
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 // import logoImage from '../assets/crop-logo.png'
 import { cn } from "../utils/cn"
 import Image from "next/image";
+import Link from "next/link";
+
+// Real <Link>s (not buttons + router.push) so Next prefetches the target route
+// and navigation is instant.
+const MotionLink = motion.create(Link)
+
+// "#faq" -> "/#faq" so section links also work from other pages.
+const toHref = (href: string) => (href.startsWith("#") ? `/${href}` : href)
 const navLinks = [
   { name: "About", href: "/about" },
   { name: "Products", href: "#products" },
@@ -20,7 +28,6 @@ const navLinks = [
 
 export function Header() {
   const pathname = usePathname();
-  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
@@ -87,34 +94,26 @@ export function Header() {
     }
   }, [pathname])
 
-  const handleNavClick = (href: string) => {
+  // Route links and section links from other pages are handled by <Link>.
+  // On the home page, section links smooth-scroll in place instead.
+  const handleNavClick = (href: string) => (event: React.MouseEvent) => {
     setIsMobileMenuOpen(false)
 
-    // Route-based link (e.g., /about)
-    if (!href.startsWith("#")) {
-      router.push(href)
-      return
-    }
+    if (!href.startsWith("#") || pathname !== "/") return
 
-    // If we're NOT on the home page, navigate to "/" with the hash
-    if (pathname !== "/") {
-      router.push(`/${href}`)
-      return
-    }
-
+    event.preventDefault()
     const element = document.querySelector(href)
     element?.scrollIntoView({ behavior: "smooth" })
     window.history.replaceState(null, "", href)
   }
 
-  const handleLogoClick = () => {
+  const handleLogoClick = (event: React.MouseEvent) => {
     setIsMobileMenuOpen(false)
-    if (pathname === "/") {
-      window.scrollTo({ top: 0, behavior: "smooth" })
-      window.history.replaceState(null, "", "/")
-    } else {
-      router.push("/")
-    }
+    if (pathname !== "/") return
+
+    event.preventDefault()
+    window.scrollTo({ top: 0, behavior: "smooth" })
+    window.history.replaceState(null, "", "/")
   }
 
   const isLinkActive = (href: string) => {
@@ -139,8 +138,8 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <motion.button
-            type="button"
+          <MotionLink
+            href="/"
             onClick={handleLogoClick}
             className="flex items-center gap-3 cursor-pointer"
             whileHover={{ scale: 1.05 }}
@@ -155,16 +154,17 @@ export function Header() {
                 height={200}
               />
             </div>
-          </motion.button>
+          </MotionLink>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
             {navLinks.map((link, index) => {
               const isActive = isLinkActive(link.href)
               return (
-                <motion.button
+                <MotionLink
                   key={link.name}
-                  onClick={() => handleNavClick(link.href)}
+                  href={toHref(link.href)}
+                  onClick={handleNavClick(link.href)}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -180,21 +180,22 @@ export function Header() {
                       isActive ? "w-full" : "w-0 group-hover:w-full",
                     )}
                   />
-                </motion.button>
+                </MotionLink>
               )
             })}
           </nav>
 
           {/* CTA Button */}
           <motion.div className="hidden lg:flex items-center gap-4">
-            <motion.button
+            <MotionLink
+              href={toHref("#contact")}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => handleNavClick("#contact")}
+              onClick={handleNavClick("#contact")}
               className="px-6 py-2.25 rounded-full bg-linear-to-r from-[#008bfd] to-secondary text-white font-medium shadow-lg shadow-[#00c7fd]/25 hover:shadow-[#00c7fd]/40 transition-shadow cursor-pointer"
             >
               Book a Call
-            </motion.button>
+            </MotionLink>
           </motion.div>
 
           {/* Mobile Menu Button */}
@@ -224,9 +225,10 @@ export function Header() {
               {navLinks.map((link) => {
                 const isActive = isLinkActive(link.href)
                 return (
-                  <button
+                  <Link
                     key={link.name}
-                    onClick={() => handleNavClick(link.href)}
+                    href={toHref(link.href)}
+                    onClick={handleNavClick(link.href)}
                     className={cn(
                       "block w-full text-left py-2 transition-colors cursor-pointer",
                       isActive
@@ -235,15 +237,16 @@ export function Header() {
                     )}
                   >
                     {link.name}
-                  </button>
+                  </Link>
                 )
               })}
-              <button
-                onClick={() => handleNavClick("#contact")}
-                className="w-full px-6 py-3 rounded-full bg-linear-to-r from-[#008bfd] to-secondary text-white font-medium cursor-pointer"
+              <Link
+                href={toHref("#contact")}
+                onClick={handleNavClick("#contact")}
+                className="block w-full text-center px-6 py-3 rounded-full bg-linear-to-r from-[#008bfd] to-secondary text-white font-medium cursor-pointer"
               >
                 Book a Call
-              </button>
+              </Link>
             </div>
           </motion.div>
         )}

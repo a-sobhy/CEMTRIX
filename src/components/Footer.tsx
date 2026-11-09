@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 const linkedInIcon = new URL("../assets/linkedin.svg", import.meta.url).href
 
@@ -25,22 +25,13 @@ const sectionLinks = [
 
 export function Footer() {
   const pathname = usePathname();
-  const router = useRouter();
 
   const handleFooterLink =
     (href: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+      // Route links and section links from other pages are handled by <Link>.
+      if (!href.startsWith("#") || pathname !== "/") return
+
       event.preventDefault()
-
-      if (!href.startsWith("#")) {
-        router.push(href)
-        return
-      }
-
-      if (pathname !== "/") {
-        router.push("/")
-        return
-      }
-
       document
         .querySelector(href)
         ?.scrollIntoView({ behavior: "smooth", block: "start" })
@@ -89,12 +80,13 @@ export function Footer() {
             <ul className="space-y-3">
               {serviceLinks.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={`/${link.href}`}
+                    onClick={handleFooterLink(link.href)}
                     className="text-sm text-gray-400 transition-colors hover:text-white"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
