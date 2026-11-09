@@ -1,5 +1,6 @@
 import { AboutPreview } from "@/components/AboutPreview";
 import { CaseStudies } from "@/components/CaseStudies";
+import { Challenge } from "@/components/Challenge";
 import { ContactForm } from "@/components/ContactForm";
 import { FAQ } from "@/components/FAQ";
 import { Hero } from "@/components/Hero";
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <Challenge />
       <Services />
       <AboutPreview />
       <CaseStudies />
