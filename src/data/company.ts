@@ -1,6 +1,42 @@
-import { BadgeCheck, ChartNoAxesColumn, Clock, Earth, Users, Wrench } from 'lucide-react';
+import { BadgeCheck, ChartNoAxesColumn, Clock, Database, Earth, TriangleAlert, Users, Wrench, Zap } from 'lucide-react';
 
-/** "Who we are" and "Why CEMTRIX" content, from the CEMTRIX company brochure. */
+/** "The challenge", "Who we are" and "Why CEMTRIX" content, from the CEMTRIX company brochure. */
+
+/** Each pressure points to the CEMTRIX product that answers it (`answer.href` is the product's section id on the home page). */
+export const challenge = {
+    label: 'The challenge',
+    heading: { lead: 'The pressures every cement plant', highlight: 'is facing today' },
+    pressures: [
+        {
+            icon: Users,
+            title: 'Expertise walking out the door',
+            description: 'Experienced people retire faster than their knowledge can be captured and passed on.',
+            answer: { name: 'SMARTCEM', href: '#learning-platform' },
+        },
+        {
+            icon: Zap,
+            title: 'Energy and cost pressure',
+            description: 'Fuel, power and raw-material costs leave little room for inefficiency in any process.',
+            answer: { name: 'Plant Intelligence', href: '#plant-platform' },
+        },
+        {
+            icon: TriangleAlert,
+            title: 'Unplanned downtime',
+            description: 'Unexpected equipment failures stop production and trigger costly emergency repairs.',
+            answer: { name: 'Condition Intelligence', href: '#condition-intelligence' },
+        },
+        {
+            icon: Database,
+            title: 'Data without decisions',
+            description: 'Plant data sits in disconnected systems instead of driving timely action.',
+            answer: { name: 'Plant Intelligence', href: '#plant-platform' },
+        },
+    ],
+    closing: {
+        lead: 'CEMTRIX can close these gaps -',
+        highlight: 'when it is built around how a cement plant actually runs.',
+    },
+};
 
 export const whoWeAre = {
     label: 'Who we are',

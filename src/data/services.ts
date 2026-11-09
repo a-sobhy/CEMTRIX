@@ -11,8 +11,6 @@ export interface ServiceData {
     description: string;
     fullDescription: string;
     features: string[];
-    /** "chips" (default) shows short tags; "checklist" shows full-sentence bullets with check icons. */
-    featureLayout?: "chips" | "checklist";
     benefits: boolean;
     detailedBenefits: BenefitItem[];
     Visual: React.ComponentType;
@@ -142,15 +140,9 @@ export const services: ServiceData[] = [
         id: "condition-intelligence",
         category: "Predictive Maintenance",
         title: "Condition Intelligence",
-        description: "Predict failures before they stop production.",
-        fullDescription: "Move from reactive to proactive maintenance. Condition Intelligence continuously monitors critical assets and gives early warning of developing faults, so maintenance is planned on evidence, not the calendar — extending asset life and reducing emergency repairs.",
-        features: [
-            "Continuous condition monitoring of critical assets",
-            "Early warning of developing faults",
-            "Maintenance planned on evidence, not the calendar",
-            "Longer asset life and fewer emergency repairs",
-        ],
-        featureLayout: "checklist",
+        description: "AI analysis of your existing sensors and condition reports: health scores, early warnings and maintenance decisions, no new hardware.",
+        fullDescription: "AI analysis of your existing sensors and condition reports: health scores, early warnings and maintenance decisions, no new hardware.",
+        features: [],
         benefits: false,
         detailedBenefits: [
             {

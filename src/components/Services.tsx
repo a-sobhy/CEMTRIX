@@ -1,7 +1,7 @@
 "use client";
 import { services } from "@/data/services";
 import { motion } from "framer-motion";
-import { ArrowRight, CircleCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { SectionLabel } from "./SectionLabel";
@@ -111,16 +111,7 @@ export function Services() {
                   </p>
 
                   {/* Features */}
-                  {service.featureLayout === "checklist" ? (
-                    <ul className="space-y-3 mb-8">
-                      {service.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-3 text-gray-300">
-                          <CircleCheck className="w-5 h-5 mt-0.5 shrink-0 text-[#00c7fd]" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
+                  {service.features.length > 0 && (
                     <div className="flex flex-wrap gap-2 mb-8">
                       {service.features.map((feature) => (
                         <span
