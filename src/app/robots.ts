@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: '*',
             allow: '/',
         },
-        sitemap: 'https://cemtrixai.com/sitemap.xml',
+        sitemap: 'https://cemtrix.ai/sitemap.xml',
     };
 }

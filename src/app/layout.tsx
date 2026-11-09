@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cemtrixai.com"),
+  metadataBase: new URL("https://cemtrix.ai"),
   title: {
     default:
       "CEMTRIX | AI Platform for Cement Plant Intelligence & Predictive Maintenance",

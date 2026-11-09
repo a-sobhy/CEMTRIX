@@ -133,9 +133,9 @@ OUR SOLUTIONS:
   Predict issues, reduce downtime and extend asset life with AI.
 
 WHILE YOU WAIT, EXPLORE CEMTRIX:
-- Visit our Website: https://cemtrixai.com
-- Explore our AI Solutions: https://cemtrixai.com/#products
-- View Customer Case Studies: https://cemtrixai.com/#case-studies
+- Visit our Website: https://cemtrix.ai
+- Explore our AI Solutions: https://cemtrix.ai/#products
+- View Customer Case Studies: https://cemtrix.ai/#case-studies
 
 WHAT HAPPENS NEXT?
 1. Your inquiry has been received and assigned to our team.
@@ -150,7 +150,7 @@ optimize plant performance, and accelerate operational excellence through AI.
 The CEMTRIX Team
 
 ---
-www.cemtrixai.com | info@cemtrixai.com
+www.cemtrix.ai | info@cemtrixai.com
         `.trim();
     }
 
@@ -159,7 +159,7 @@ www.cemtrixai.com | info@cemtrixai.com
     // Fallback text symbol shown when images are blocked.
     // Base URL for hosted icon PNGs — place these in your public/assets/icons/ folder.
 
-    private readonly ICON_BASE = 'https://cemtrixai.com/assets/mail-icons';
+    private readonly ICON_BASE = 'https://cemtrix.ai/assets/mail-icons';
 
     /**
      * Renders an email-safe icon using a hosted PNG image.
@@ -285,7 +285,7 @@ www.cemtrixai.com | info@cemtrixai.com
               use a hosted gradient image for perfect fidelity, or accept
               the solid-colour fallback shown here.
             -->
-            <img src="https://cemtrixai.com/assets/logo.png"
+            <img src="https://cemtrix.ai/assets/logo.png"
                  alt="CEMTRIX" width="240"
                  style="display:inline-block;max-width:240px;
                         height:auto;margin-bottom:20px;border:0;"/>
@@ -307,7 +307,7 @@ www.cemtrixai.com | info@cemtrixai.com
               A 3-pixel-tall hosted PNG that shows the gradient.
               Falls back to a solid blue border on clients that block images.
             -->
-            <img src="https://cemtrixai.com/assets/gradient-divider.png"
+            <img src="https://cemtrix.ai/assets/gradient-divider.png"
                  alt="" width="750" height="3"
                  style="display:block;width:100%;border:0;
                         border-top:3px solid #3b5bdb;"/>
@@ -456,7 +456,7 @@ www.cemtrixai.com | info@cemtrixai.com
                 <!-- Website -->
                 <td width="33%" style="text-align:center;padding:10px 5px;
                                        border-right:1px solid #dfdfdf;">
-                  <a href="https://cemtrixai.com"
+                  <a href="https://cemtrix.ai"
                      style="text-decoration:none;color:inherit;display:block;">
                     <table cellpadding="0" cellspacing="0" border="0"
                            align="center" style="margin:0 auto 10px;">
@@ -473,7 +473,7 @@ www.cemtrixai.com | info@cemtrixai.com
                 <!-- AI Solutions -->
                 <td width="33%" style="text-align:center;padding:10px 5px;
                                        border-right:1px solid #dfdfdf;">
-                  <a href="https://cemtrixai.com/#products"
+                  <a href="https://cemtrix.ai/#products"
                      style="text-decoration:none;color:inherit;display:block;">
                     <table cellpadding="0" cellspacing="0" border="0"
                            align="center" style="margin:0 auto 10px;">
@@ -489,7 +489,7 @@ www.cemtrixai.com | info@cemtrixai.com
 
                 <!-- Case Studies -->
                 <td width="34%" style="text-align:center;padding:10px 5px;">
-                  <a href="https://cemtrixai.com/#case-studies"
+                  <a href="https://cemtrix.ai/#case-studies"
                      style="text-decoration:none;color:inherit;display:block;">
                     <table cellpadding="0" cellspacing="0" border="0"
                            align="center" style="margin:0 auto 10px;">
@@ -618,7 +618,7 @@ www.cemtrixai.com | info@cemtrixai.com
                                  text-align:center;
                                  vertical-align:middle;
                                  width:70px;height:70px;">
-                        <img src="https://cemtrixai.com/assets/icon.png"
+                        <img src="https://cemtrix.ai/assets/icon.png"
                              alt="CEMTRIX" width="40" height="40"
                              style="display:block;margin:15px auto;border:0;"/>
                       </td>
@@ -659,10 +659,10 @@ www.cemtrixai.com | info@cemtrixai.com
                   <span style="display:inline-block;margin:0 12px;
                                color:#cbd5e1;font-size:12px;">
                     ${icnGlobeFooter}
-                    <a href="https://www.cemtrixai.com"
+                    <a href="https://www.cemtrix.ai"
                        style="color:#cbd5e1;text-decoration:none;
                               vertical-align:middle;">
-                      www.cemtrixai.com
+                      www.cemtrix.ai
                     </a>
                   </span>
 
