@@ -31,4 +31,9 @@ export const faqs: FaqItem[] = [
         question: 'What kind of support do you offer?',
         answer: 'We offer comprehensive support including initial onboarding, training sessions, dedicated account management, 24/7 technical support for enterprise clients, and continuous optimization to ensure your automations perform at their best.',
     },
+    {
+        id: '6',
+        question: 'Does CEMTRIX work with our existing equipment sensors?',
+        answer: 'Yes. CEMTRIX Condition Intelligence uses AI to analyze the sensors and condition reports you already have, turning them into health scores, early warnings and maintenance decisions, with no new hardware required. Monitoring scales from small motors to your largest process equipment. CEMTRIX Plant Intelligence also connects directly to your existing SCADA and DCS systems, so your equipment data sits in one view with production, energy, quality and maintenance data.',
+    },
 ];

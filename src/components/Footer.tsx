@@ -56,9 +56,9 @@ export function Footer() {
               height={100}
             />
             <p className="max-w-sm leading-relaxed text-gray-400 my-6">
-              CEMTRIX builds AI automation systems that remove repetitive work,
-              connect your tools, and help modern teams scale faster with less
-              operational drag.
+              CEMTRIX helps cement plants improve workforce capability, plant
+              performance and equipment reliability with AI-powered learning,
+              operational intelligence and predictive maintenance.
             </p>
             <a
               href="https://www.linkedin.com/"
