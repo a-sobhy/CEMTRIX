@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import Providers from "@/components/Providers";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,7 +49,19 @@ export default function RootLayout({
           <Footer />
           <GoToTop />
         </Providers>
-        {/* {children} */}
+
+        {/* Google Tag Manager */}
+        <Script id="gtm-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          `}
+        </Script>
+        <Script
+          src="https://www.googletagmanager.com/gtm.js?id=GTM-PD9QT73S"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

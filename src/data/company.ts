@@ -1,4 +1,18 @@
-import { BadgeCheck, ChartNoAxesColumn, Clock, Database, Earth, TriangleAlert, Users, Wrench, Zap } from 'lucide-react';
+import {
+    BadgeCheck,
+    ChartNoAxesColumn,
+    Clock,
+    Database,
+    Earth,
+    Gauge,
+    GraduationCap,
+    Leaf,
+    ShieldCheck,
+    TriangleAlert,
+    Users,
+    Wrench,
+    Zap,
+} from 'lucide-react';
 
 /** "The challenge", "Who we are" and "Why CEMTRIX" content, from the CEMTRIX company brochure. */
 
@@ -52,6 +66,34 @@ export const whoWeAre = {
         lead: 'Tailored, not plug-and-play:',
         text: 'every deployment is configured to the plant’s own processes, data and priorities.',
     },
+};
+
+export const ourVision = {
+    heading: 'Our vision',
+    statement:
+        'A cement industry where every plant runs on intelligence - where AI and experienced people work side by side to make cement more efficiently, more reliably and more sustainably than ever before.',
+    pillars: [
+        {
+            icon: GraduationCap,
+            title: 'Knowledge that stays',
+            description: 'Plant expertise captured, shared and grown - never lost to retirement.',
+        },
+        {
+            icon: Gauge,
+            title: 'Self-optimising plants',
+            description: 'Production, energy and quality continuously tuned by AI, around the clock.',
+        },
+        {
+            icon: ShieldCheck,
+            title: 'No unplanned stops',
+            description: 'Equipment issues predicted and handled long before they halt production.',
+        },
+        {
+            icon: Leaf,
+            title: 'Lower-carbon cement',
+            description: 'Less energy and fewer emissions for every tonne produced.',
+        },
+    ],
 };
 
 export const whyCemtrix = {
