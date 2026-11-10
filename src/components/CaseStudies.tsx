@@ -19,7 +19,7 @@ const caseStudies: CaseStudy[] = [
     logo: 'SMARTCEM',
     title: 'AI-Powered Learning platform',
     description: "An AI-native workforce intelligence platform built specifically for cement operations, capturing institutional knowledge before it walks out the door.",
-    impact: ['20-40% Safety & Compliance', '20-30% Lower Training Costs', '15%-25% Improved Productivity', '10-20% Lower Attrrition Cost'],
+    impact: ['20-40% Safety & Compliance', '20-30% Lower Training Costs', '15%-25% Improved Productivity', '10-20% Lower Attrition Cost'],
     image: '/assets/case-studies/1.png',
   },
   {

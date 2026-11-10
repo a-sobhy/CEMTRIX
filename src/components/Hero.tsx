@@ -8,7 +8,8 @@ export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const headline1 = "AI-Native Industrial Intelligence Platform";
-  const headline2 = "For Cement Industry";
+  // The page's only H1 - keep "AI for cement plants" in it.
+  const headline2 = "AI for Cement Plants";
   const HERO_TAGLINE = "Empower People\nOptimize Assets\nAccelerate Performance";
 
   useEffect(() => {
@@ -61,22 +62,22 @@ export function Hero() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid gap-24 lg:grid-cols-6">
           <div className="lg:text-left lg:col-span-4">
-            <motion.h1
+            <motion.p
               initial={{ opacity: 0, x: 10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
               className="text-xl sm:text-2xl lg:text-2xl tracking-tight text-gray-400"
             >
               {headline1}
-            </motion.h1>
-            <motion.h1
+            </motion.p>
+            <motion.p
               initial={{ opacity: 0, x: 10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1.0, duration: 0.8 }}
               className="font-bold text-5xl sm:text-6xl lg:text-5xl line-h text-white whitespace-pre-line my-4 leading-15"
             >
               {HERO_TAGLINE}
-            </motion.h1>
+            </motion.p>
             <motion.h1
               initial={{ opacity: 0, x: 10 }}
               animate={{ opacity: 1, x: 0 }}
