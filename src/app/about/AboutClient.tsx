@@ -1,9 +1,9 @@
 "use client"
 import { motion } from 'framer-motion';
-import { ArrowRight, Brain, Check, Globe2, Layers, Shield, Target, Users, Zap } from 'lucide-react';
+import { ArrowRight, Brain, Check, Eye, Globe2, Layers, Shield, Target, Users, Zap } from 'lucide-react';
 import Link from 'next/link';
 import { SectionLabel } from '@/components/SectionLabel';
-import { whoWeAre, whyCemtrix } from '@/data/company';
+import { ourVision, whoWeAre, whyCemtrix } from '@/data/company';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 48 },
@@ -160,6 +160,46 @@ export default function AboutClient() {
                             <motion.div key={item.label} variants={fadeInUp} className="rounded-3xl border border-white/10 bg-white/3 p-6">
                                 <div className="gradient-text mb-2 text-4xl font-bold">{item.value}</div>
                                 <p className="text-sm text-gray-400">{item.label}</p>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* Vision */}
+            <section className="relative z-10 px-4 pb-24 sm:px-6 lg:px-8">
+                <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        className="relative overflow-hidden rounded-4xl border border-white/10 bg-dark-card/50 p-8 lg:order-2"
+                    >
+                        <div className="absolute -left-24 -top-24 h-64 w-64 rounded-full bg-secondary/20 blur-3xl" />
+                        <div className="relative">
+                            <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-secondary to-primary">
+                                <Eye className="h-8 w-8 text-white" />
+                            </div>
+                            <h2 className="mb-4 text-3xl font-bold text-white">{ourVision.heading}</h2>
+                            <p className="text-gray-400 leading-relaxed">{ourVision.statement}</p>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerContainer}
+                        className="grid gap-4 sm:grid-cols-2 lg:order-1"
+                    >
+                        {ourVision.pillars.map((pillar) => (
+                            <motion.div key={pillar.title} variants={fadeInUp} className="rounded-3xl border border-white/10 bg-white/3 p-6">
+                                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-primary">
+                                    <pillar.icon className="h-5 w-5" />
+                                </div>
+                                <h3 className="mb-2 text-lg font-bold text-white">{pillar.title}</h3>
+                                <p className="text-sm leading-relaxed text-gray-400">{pillar.description}</p>
                             </motion.div>
                         ))}
                     </motion.div>
