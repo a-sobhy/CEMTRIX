@@ -27,6 +27,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: `${service.category} – ${service.title}`,
         description: service.description,
         alternates: { canonical: `/products/${service.id}` },
+        // Products the site doesn't link to yet (readMore: false) have no full detail page:
+        // keep them out of Google's index until they do. Matches the sitemap filter.
+        ...(!service.readMore && { robots: { index: false, follow: true } }),
     };
 }
 

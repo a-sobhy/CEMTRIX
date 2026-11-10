@@ -1,9 +1,9 @@
 "use client"
+import { SectionLabel } from '@/components/SectionLabel';
+import { ourVision, whoWeAre, whyCemtrix } from '@/data/company';
 import { motion } from 'framer-motion';
 import { ArrowRight, Brain, Check, Eye, Globe2, Layers, Shield, Target, Users, Zap } from 'lucide-react';
 import Link from 'next/link';
-import { SectionLabel } from '@/components/SectionLabel';
-import { ourVision, whoWeAre, whyCemtrix } from '@/data/company';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 48 },
@@ -60,14 +60,14 @@ export default function AboutClient() {
                     </motion.div>
 
                     <motion.h1 variants={fadeInUp} className="mb-8 text-5xl font-bold leading-tight text-white sm:text-6xl lg:text-7xl">
-                        We build AI systems that make work feel
-                        <span className="gradient-text"> effortless</span>
+                        We build AI that helps cement plants run
+                        <span className="gradient-text"> smarter</span>
                     </motion.h1>
 
                     <motion.p variants={fadeInUp} className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-400 sm:text-xl">
-                        CEMTRIX is an AI automation studio for modern teams. We turn repetitive work,
-                        scattered tools, and slow handoffs into intelligent systems that execute with speed,
-                        context, and measurable impact.
+                        CEMTRIX is an AI-powered industrial technology company for the cement industry. We turn
+                        plant data and hard-won expertise into intelligent systems that strengthen your workforce,
+                        optimise operations and keep critical equipment running.
                     </motion.p>
                 </motion.div>
             </section>
