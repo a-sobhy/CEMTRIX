@@ -5,15 +5,16 @@ import { usePathname } from "next/navigation";
 
 const linkedInIcon = new URL("../assets/linkedin.svg", import.meta.url).href
 
+// Products with a detail page link to it; the rest link to their home page section.
 const serviceLinks = [
-  { label: "Learning platform", href: "#learning-platform" },
-  { label: "Plant Intelligence", href: "#plant-platform" },
+  { label: "Learning platform", href: "/products/learning-platform" },
+  { label: "Plant Intelligence", href: "/products/plant-platform" },
   { label: "Condition Intelligence", href: "#condition-intelligence" },
 ]
 
+// No "Products" entry: the products column above already lists them.
 const sectionLinks = [
   { label: "About", href: "/about" },
-  { label: "Products", href: "#products" },
   // { label: "Process", href: "#process" },
   { label: "Case Studies", href: "#case-studies" },
   // { label: "Benefits", href: "#benefits" },
@@ -22,6 +23,9 @@ const sectionLinks = [
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ]
+
+// "#faq" -> "/#faq" so section links also work from other pages.
+const toHref = (href: string) => (href.startsWith("#") ? `/${href}` : href)
 
 export function Footer() {
   const pathname = usePathname();
@@ -81,7 +85,7 @@ export function Footer() {
               {serviceLinks.map((link) => (
                 <li key={link.label}>
                   <Link
-                    href={`/${link.href}`}
+                    href={toHref(link.href)}
                     onClick={handleFooterLink(link.href)}
                     className="text-sm text-gray-400 transition-colors hover:text-white"
                   >
@@ -99,9 +103,7 @@ export function Footer() {
               {sectionLinks.map((link) => (
                 <li key={link.label}>
                   <Link
-                    href={
-                      link.href.startsWith("#") ? `/${link.href}` : link.href
-                    }
+                    href={toHref(link.href)}
                     onClick={handleFooterLink(link.href)}
                     className="text-sm text-gray-400 transition-colors hover:text-white"
                   >
@@ -125,18 +127,18 @@ export function Footer() {
             /> CEMTRIX. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a
-              href="#"
+            <Link
+              href="/privacy"
               className="text-sm text-gray-500 transition-colors hover:text-white"
             >
               Privacy
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/terms"
               className="text-sm text-gray-500 transition-colors hover:text-white"
             >
               Terms
-            </a>
+            </Link>
           </div>
         </div>
       </div>

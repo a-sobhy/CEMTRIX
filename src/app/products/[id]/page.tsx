@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { JsonLd } from "@/components/JsonLd";
 import { services } from "@/data/services";
+import { productJsonLd } from "@/lib/structured-data";
 import ProductClient from "./ProductClient";
 
 // Prerender every product page at build time so navigation from the home page
@@ -30,7 +32,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProductPage({ params }: Props) {
     const { id } = await params;
-    if (!services.some((s) => s.id === id)) notFound();
+    const service = services.find((s) => s.id === id);
+    if (!service) notFound();
 
-    return <ProductClient id={id} />;
+    return (
+        <>
+            <JsonLd data={productJsonLd(service)} />
+            <ProductClient id={id} />
+        </>
+    );
 }
