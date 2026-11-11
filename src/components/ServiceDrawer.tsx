@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Building, Check, Mail, MessageSquare, Send, User, X } from 'lucide-react';
 import { useState } from 'react';
 import { useSubmitServiceEnquiry } from '../hooks/useServiceEnquiry';
+import QueryProvider from './Providers';
 
 interface ServiceDrawerProps {
   isOpen: boolean;
@@ -12,7 +13,7 @@ interface ServiceDrawerProps {
 
 const EMPTY_FORM = { name: '', email: '', company: '', message: '' };
 
-export function ServiceDrawer({ isOpen, onClose, serviceTitle }: ServiceDrawerProps) {
+function ServiceDrawerContent({ isOpen, onClose, serviceTitle }: ServiceDrawerProps) {
   const [formData, setFormData] = useState(EMPTY_FORM);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -183,5 +184,14 @@ export function ServiceDrawer({ isOpen, onClose, serviceTitle }: ServiceDrawerPr
         </>
       )}
     </AnimatePresence>
+  );
+}
+
+// React Query is provided here (not in the root layout) so its code only loads with the forms.
+export function ServiceDrawer(props: ServiceDrawerProps) {
+  return (
+    <QueryProvider>
+      <ServiceDrawerContent {...props} />
+    </QueryProvider>
   );
 }

@@ -10,36 +10,6 @@
   --color-dark-card: #1a1a2e;
 }
 
-/* custom fonts */
-@font-face {
-  font-family: "figtree";
-  src: url("/fonts/Figtree-Regular.otf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "figtree";
-  src: url("/fonts/Figtree-Medium.otf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "figtree";
-  src: url("/fonts/Figtree-Bold.otf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "figtree";
-  src: url("/fonts/Figtree-ExtraBold.otf") format("truetype");
-  font-weight: 900;
-  font-style: normal;
-}
-
-
 * {
   scroll-behavior: smooth;
 }
@@ -47,7 +17,8 @@
 body {
   background-color: #0a0a0f;
   color: #ffffff;
-  font-family: 'figtree', system-ui, -apple-system, sans-serif;
+  /* Figtree is loaded with next/font in app/layout.tsx. */
+  font-family: var(--font-figtree), system-ui, -apple-system, sans-serif;
   font-weight: 500;
   cursor: default;
 }
@@ -80,6 +51,30 @@ select {
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #6366f1, #8b5cf6);
   border-radius: 4px;
+}
+
+/* Hero entrance: the 10px slide the hero used to get from framer-motion, in CSS so it starts
+   with the first paint instead of after hydration. Deliberately no opacity fade: the headline is
+   the page's LCP element, and Chrome only records LCP for text painted with opacity > 0. A CSS
+   opacity animation runs on the compositor without repainting, so a fade from 0 means LCP is
+   never recorded (or recorded late). */
+@keyframes hero-in {
+  from {
+    transform: translateX(10px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+.hero-in {
+  animation: hero-in 0.6s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-in {
+    animation: none;
+  }
 }
 
 /* Gradient text */
