@@ -81,6 +81,8 @@ export function CentralOrb({ benefits }: { benefits: BenefitItem[] }) {
           <motion.button
             key={b.title}
             onClick={() => setActiveIndex(i)}
+            aria-label={`Show benefit: ${b.title}`}
+            aria-pressed={i === activeIndex}
             className="absolute top-1/2 left-1/2 cursor-pointer group"
             style={{ x: x - 20, y: y - 20 }}
             whileHover={{ scale: 1.2 }}

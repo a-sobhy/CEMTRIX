@@ -80,7 +80,8 @@ export function Footer() {
 
           {/* Service links */}
           <div>
-            <h4 className="mb-5 font-semibold text-white">Our AI-Powered Products</h4>
+            {/* h2, not h4: headings must not skip levels. Styling comes from the classes. */}
+            <h2 className="mb-5 font-semibold text-white">Our AI-Powered Products</h2>
             <ul className="space-y-3">
               {serviceLinks.map((link) => (
                 <li key={link.label}>
@@ -98,7 +99,7 @@ export function Footer() {
 
           {/* Section links */}
           <div>
-            <h4 className="mb-5 font-semibold text-white">Sections</h4>
+            <h2 className="mb-5 font-semibold text-white">Sections</h2>
             <ul className="grid grid-cols-2 gap-3 md:grid-cols-1">
               {sectionLinks.map((link) => (
                 <li key={link.label}>
