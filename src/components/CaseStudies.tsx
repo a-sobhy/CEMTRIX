@@ -135,7 +135,7 @@ export function CaseStudies() {
               </div>
 
               <div className="text-left lg:col-span-7">
-                <p className="text-3xl font-black text-white/20 mb-8 tracking-widest">{current.logo}</p>
+                <p className="text-3xl font-black text-white/35 mb-8 tracking-widest">{current.logo}</p>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 leading-tight">{current.title}</h3>
                 <p className="text-gray-400 text-lg mb-8 leading-relaxed">{current.description}</p>
                 <p className="text-white font-semibold mb-2">Impact :</p>
@@ -157,6 +157,7 @@ export function CaseStudies() {
           <div className="flex items-center gap-8">
             <button
               onClick={goPrev}
+              aria-label="Previous case study"
               className="p-3 rounded-full border border-white/10 text-gray-400 hover:text-white hover:bg-white/5 transition-all cursor-pointer"
             >
               <ArrowLeft className="w-6 h-6" />
@@ -168,6 +169,7 @@ export function CaseStudies() {
             </span>
             <button
               onClick={goNext}
+              aria-label="Next case study"
               className="p-3 rounded-full border border-white/10 text-gray-400 hover:text-white hover:bg-white/5 transition-all cursor-pointer"
             >
               <ArrowRight className="w-6 h-6" />
@@ -179,6 +181,8 @@ export function CaseStudies() {
               <button
                 key={i}
                 onClick={() => { setDirection(i > currentIndex ? 1 : -1); setCurrentIndex(i); }}
+                aria-label={`Show case study ${i + 1}: ${caseStudies[i].logo}`}
+                aria-current={i === currentIndex ? "true" : undefined}
                 className={`h-1 rounded-full transition-all duration-300 cursor-pointer ${i === currentIndex ? 'w-8 bg-primary' : 'w-2 bg-white/20 hover:bg-white/40'
                   }`}
               />

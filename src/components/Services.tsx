@@ -10,6 +10,8 @@ import { SectionLabel } from "./SectionLabel";
 // The enquiry drawer (and the React Query/axios code its form needs) only loads on demand.
 const ServiceDrawer = dynamic(() => import("./ServiceDrawer").then((m) => m.ServiceDrawer), { ssr: false });
 
+const MotionLink = motion.create(Link);
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
   visible: {
@@ -137,16 +139,17 @@ export function Services() {
                       Get Started
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </motion.button>
-                    {service.readMore && <Link href={`/products/${service.id}`}>
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="group px-6 py-3 rounded-xl bg-transparent text-white border border-white/10 hover:border-white/30 font-medium flex items-center gap-2 shadow-lg shadow-gray-500/25 cursor-pointer"
-                      >
-                        Read more
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </motion.button>
-                    </Link>}
+                    {/* A styled link, not a <button> inside <a> (invalid nesting). The visually
+                        hidden product name makes the link text descriptive for screen readers and SEO. */}
+                    {service.readMore && <MotionLink
+                      href={`/products/${service.id}`}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="group px-6 py-3 rounded-xl bg-transparent text-white border border-white/10 hover:border-white/30 font-medium flex items-center gap-2 shadow-lg shadow-gray-500/25 cursor-pointer"
+                    >
+                      Read more<span className="sr-only"> about {service.title}</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </MotionLink>}
                   </div>
                 </div>
               </motion.div>

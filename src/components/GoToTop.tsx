@@ -28,6 +28,7 @@ export function GoToTop() {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
+          aria-label="Back to top"
           className="fixed bottom-4 right-2 z-50 p-3 rounded-full bg-linear-to-r from-primary to-secondary text-white shadow-lg shadow-primary/25 cursor-pointer"
         >
           <ArrowUp className="w-6 h-6" />

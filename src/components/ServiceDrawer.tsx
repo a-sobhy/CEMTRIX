@@ -72,6 +72,7 @@ function ServiceDrawerContent({ isOpen, onClose, serviceTitle }: ServiceDrawerPr
                 </div>
                 <button
                   onClick={onClose}
+                  aria-label="Close"
                   className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors cursor-pointer"
                 >
                   <X className="w-5 h-5 text-gray-400" />

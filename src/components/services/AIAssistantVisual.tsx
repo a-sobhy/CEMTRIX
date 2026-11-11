@@ -56,7 +56,10 @@ export function AIAssistantVisual() {
             alt={slides[currentIndex].title}
             fill
             sizes="(min-width: 1024px) 560px, 100vw"
-            className="object-fill"
+            // Screenshots are ~2.06:1 in a 16:9 frame. object-fill squashed them and object-cover
+            // would crop the logo and controls at the edges, so show the whole image, top-aligned;
+            // the bottom gradient below covers the remaining strip.
+            className="object-contain object-top"
           />
           {/* Overlay gradient */}
           <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent" />
@@ -68,12 +71,14 @@ export function AIAssistantVisual() {
         <div className="flex gap-2">
           <button
             onClick={prevSlide}
+            aria-label="Previous screenshot"
             className="p-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-colors cursor-pointer"
           >
             <ChevronLeft className="w-4 h-4 text-white" />
           </button>
           <button
             onClick={nextSlide}
+            aria-label="Next screenshot"
             className="p-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-colors cursor-pointer"
           >
             <ChevronRight className="w-4 h-4 text-white" />

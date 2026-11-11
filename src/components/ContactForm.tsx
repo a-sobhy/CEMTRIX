@@ -85,7 +85,7 @@ function ContactFormContent() {
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
-                <h4 className="text-white font-bold mb-1">Email Us</h4>
+                <h3 className="text-white font-bold mb-1">Email Us</h3>
                 <a href="mailto:demo@cemtrix.ai" className="text-sm text-gray-400">demo@cemtrix.ai</a>
               </motion.div>
 
@@ -93,7 +93,7 @@ function ContactFormContent() {
                 <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <Phone className="w-5 h-5 text-accent" />
                 </div>
-                <h4 className="text-white font-bold mb-1">Call Us</h4>
+                <h3 className="text-white font-bold mb-1">Call Us</h3>
                 <a href="tel:+971547294934" className="text-sm text-gray-400">+971 54 729 4934</a>
               </motion.div>
 
@@ -101,7 +101,7 @@ function ContactFormContent() {
                 <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <MapPin className="w-5 h-5 text-secondary" />
                 </div>
-                <h4 className="text-white font-bold mb-1">Our Location</h4>
+                <h3 className="text-white font-bold mb-1">Our Location</h3>
                 <a href="https://maps.app.goo.gl/JFrYEUzc1L96WFP48" className="text-sm text-gray-400" target="_blank">Building A1, Dubai Digital Park, Dubai Silicon Oasis, Dubai UAE</a>
               </motion.div>
             </motion.div>
