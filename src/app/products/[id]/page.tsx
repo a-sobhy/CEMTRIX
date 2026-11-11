@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import { JsonLd } from "@/components/JsonLd";
 import { services } from "@/data/services";
-import { productJsonLd } from "@/lib/structured-data";
+import { serviceJsonLd } from "@/lib/structured-data";
 import ProductClient from "./ProductClient";
 
 // Prerender every product page at build time so navigation from the home page
@@ -40,7 +40,7 @@ export default async function ProductPage({ params }: Props) {
 
     return (
         <>
-            <JsonLd data={productJsonLd(service)} />
+            <JsonLd data={serviceJsonLd(service)} />
             <ProductClient id={id} />
         </>
     );
