@@ -55,6 +55,7 @@ export function AIAssistantVisual() {
             src={slides[currentIndex].url}
             alt={slides[currentIndex].title}
             fill
+            sizes="(min-width: 1024px) 560px, 100vw"
             className="object-fill"
           />
           {/* Overlay gradient */}

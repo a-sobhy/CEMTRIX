@@ -3,19 +3,20 @@ import { GoToTop } from "@/components/GoToTop";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationJsonLd } from "@/lib/structured-data";
-import Providers from "@/components/Providers";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Figtree } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Self-hosted woff2, latin subset, font-display: swap and size-adjusted fallback metrics.
+// Weights match the design exactly: font-semibold (600) resolves to 700 and font-black (900)
+// resolves to 800 (ExtraBold), as they did with the old .otf files. Don't add 600 or 900
+// without checking the design: those classes would change appearance.
+const figtree = Figtree({
+  variable: "--font-figtree",
   subsets: ["latin"],
+  weight: ["400", "500", "700", "800"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -40,21 +41,20 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${figtree.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <JsonLd data={organizationJsonLd()} />
-        <Providers>
-          <Header />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
-          <GoToTop />
-        </Providers>
+        <Header />
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer />
+        <GoToTop />
 
-        {/* Google Tag Manager */}
-        <Script id="gtm-init" strategy="afterInteractive">
+        {/* Google Tag Manager: lazyOnload keeps its ~180 KB out of the critical path. Trade-off:
+            visits that end within the first second or two aren't recorded. */}
+        <Script id="gtm-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -63,7 +63,7 @@ export default function RootLayout({
         </Script>
         <Script
           src="https://www.googletagmanager.com/gtm.js?id=GTM-PD9QT73S"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </body>
     </html>

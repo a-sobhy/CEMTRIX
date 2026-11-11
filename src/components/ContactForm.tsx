@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Building, Calendar, Mail, MapPin, MessageSquare, Phone, Send, User } from 'lucide-react';
 import { useState } from 'react';
 import { useSubmitContact } from '../hooks/useContact';
+import QueryProvider from './Providers';
 import { SectionLabel } from './SectionLabel';
 
 // ─── Animation variants ───────────────────────────────────────────────────────
@@ -23,7 +24,7 @@ const staggerContainer = {
 const EMPTY_FORM = { name: '', email: '', company: '', message: '' };
 
 // ─── Component ────────────────────────────────────────────────────────────────
-export function ContactForm() {
+function ContactFormContent() {
   const [formData, setFormData] = useState(EMPTY_FORM);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -233,5 +234,14 @@ export function ContactForm() {
         </div>
       </div>
     </section>
+  );
+}
+
+// React Query is provided here (not in the root layout) so its code only loads with the forms.
+export function ContactForm() {
+  return (
+    <QueryProvider>
+      <ContactFormContent />
+    </QueryProvider>
   );
 }

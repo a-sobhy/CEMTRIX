@@ -1,6 +1,7 @@
 "use client";
 import { AnimatePresence, motion, useMotionValue } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import { useState } from 'react';
 import { SectionLabel } from './SectionLabel';
 
@@ -124,10 +125,12 @@ export function CaseStudies() {
               className="grid lg:grid-cols-12 gap-12 items-center"
             >
               <div className="relative rounded-3xl overflow-hidden aspect-4/3 shadow-xl shadow-blue-800/10 lg:col-span-5">
-                <img
+                <Image
                   src={current.image}
                   alt={current.logo}
-                  className="w-full h-full object-cover pointer-events-none"
+                  fill
+                  sizes="(min-width: 1280px) 500px, (min-width: 1024px) 40vw, 100vw"
+                  className="object-cover pointer-events-none"
                 />
               </div>
 

@@ -77,9 +77,24 @@ export function Header() {
       setActiveSection(current)
     }
 
-    window.addEventListener("scroll", handleScroll)
-    handleScroll()
-    return () => window.removeEventListener("scroll", handleScroll)
+    // handleScroll reads layout (offsetTop, scrollHeight). Run it at most once per frame, in
+    // requestAnimationFrame, so it never forces a synchronous layout during hydration or on
+    // every scroll event.
+    let frame = 0
+    const onScroll = () => {
+      if (frame) return
+      frame = requestAnimationFrame(() => {
+        frame = 0
+        handleScroll()
+      })
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true })
+    onScroll()
+    return () => {
+      window.removeEventListener("scroll", onScroll)
+      cancelAnimationFrame(frame)
+    }
   }, [pathname])
 
   // ─── FIX: When navigating to "/" with a hash, scroll to that section ───

@@ -2,10 +2,13 @@
 import { services } from "@/data/services";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useState } from "react";
 import { SectionLabel } from "./SectionLabel";
-import { ServiceDrawer } from "./ServiceDrawer";
+
+// The enquiry drawer (and the React Query/axios code its form needs) only loads on demand.
+const ServiceDrawer = dynamic(() => import("./ServiceDrawer").then((m) => m.ServiceDrawer), { ssr: false });
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
