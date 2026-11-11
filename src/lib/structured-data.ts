@@ -20,18 +20,23 @@ export function organizationJsonLd(): JsonLdObject {
     };
 }
 
-export function productJsonLd(service: ServiceData): JsonLdObject {
+/**
+ * Uses `Service`, not `Product`: Google requires Product markup to carry `offers`,
+ * `review` or `aggregateRating`, and these B2B platforms are sold through demos with
+ * no public price or reviews. Don't add placeholder prices or ratings to get around it.
+ */
+export function serviceJsonLd(service: ServiceData): JsonLdObject {
     return {
         '@context': 'https://schema.org',
-        '@type': 'Product',
-        '@id': `${SITE_URL}/products/${service.id}#product`,
-        name: service.category,
-        alternateName: service.title,
+        '@type': 'Service',
+        '@id': `${SITE_URL}/products/${service.id}#service`,
+        name: `${service.category} – ${service.title}`,
+        serviceType: service.title,
+        category: 'Industrial AI software for cement plants',
         description: service.fullDescription,
         url: `${SITE_URL}/products/${service.id}`,
-        category: 'Industrial AI software for cement plants',
-        brand: { '@id': ORGANIZATION_ID },
-        manufacturer: { '@id': ORGANIZATION_ID },
+        provider: { '@type': 'Organization', '@id': ORGANIZATION_ID, name: 'CEMTRIX', url: SITE_URL },
+        areaServed: 'Worldwide',
     };
 }
 
