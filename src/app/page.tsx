@@ -1,9 +1,27 @@
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 
 import { Hero } from "@/components/Hero";
 import { JsonLd } from "@/components/JsonLd";
 import { faqs } from "@/data/faqs";
-import { faqPageJsonLd } from "@/lib/structured-data";
+import { baseOpenGraph, HOME_DESCRIPTION, HOME_TITLE } from "@/lib/site";
+import { faqPageJsonLd, websiteJsonLd } from "@/lib/structured-data";
+
+// <title> and the description come from the root layout. Social titles are set here, not in the
+// layout, so other pages don't inherit the home page's og:title.
+export const metadata: Metadata = {
+  openGraph: {
+    ...baseOpenGraph,
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    url: "/",
+  },
+  twitter: {
+    card: "summary",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+  },
+};
 // import { Pricing } from "@/components/Pricing";
 // import { Testimonials } from "@/components/Testimonials";
 // import { Process } from "@/components/Process";
@@ -21,6 +39,7 @@ const ContactForm = dynamic(() => import("@/components/ContactForm").then((m) =>
 export default function Home() {
   return (
     <main>
+      <JsonLd data={websiteJsonLd()} />
       <JsonLd data={faqPageJsonLd(faqs)} />
       <Hero />
       <Challenge />

@@ -3,8 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const linkedInIcon = new URL("../assets/linkedin.svg", import.meta.url).href
-
 // Products with a detail page link to it; the rest link to their home page section.
 const serviceLinks = [
   { label: "Learning platform", href: "/products/learning-platform" },
@@ -60,22 +58,8 @@ export function Footer() {
               performance and equipment reliability with AI-powered learning,
               operational intelligence and predictive maintenance.
             </p>
-            <a
-              href="https://www.linkedin.com/"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-300 transition-colors hover:bg-white/10 hover:text-white"
-            >
-              <Image
-                src={linkedInIcon}
-                alt=""
-                className="h-4 w-4"
-                aria-hidden="true"
-                height={16}
-                width={16}
-              />
-              LinkedIn
-            </a>
+            {/* LinkedIn button removed until the company page exists (it pointed to linkedin.com).
+                To restore it, add the real company page URL and the assets/linkedin.svg icon. */}
           </div>
 
           {/* Service links */}

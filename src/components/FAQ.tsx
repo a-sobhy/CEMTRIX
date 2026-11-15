@@ -1,5 +1,5 @@
 "use client";
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import { faqs } from '@/data/faqs';
@@ -38,7 +38,7 @@ export function FAQ() {
             <span className="gradient-text">You&apos;re Looking For</span>
           </motion.h2>
           <motion.p variants={fadeInUp} className="text-gray-400 text-lg">
-            Quick answers to your AI automation questions.
+            Quick answers about Cemtrix AI for cement plants.
           </motion.p>
         </motion.div>
 
@@ -49,39 +49,44 @@ export function FAQ() {
           variants={staggerContainer}
           className="space-y-4"
         >
-          {faqs.map((faq) => (
-            <motion.div
-              key={faq.id}
-              variants={fadeInUp}
-              className="rounded-2xl bg-dark-card/50 backdrop-blur-sm border border-white/10 overflow-hidden"
-            >
-              <button
-                onClick={() => setOpenId(openId === faq.id ? null : faq.id)}
-                className="w-full p-6 flex items-center justify-between text-left cursor-pointer"
+          {faqs.map((faq) => {
+            const isOpen = openId === faq.id;
+            const answerId = `faq-answer-${faq.id}`;
+            return (
+              <motion.div
+                key={faq.id}
+                variants={fadeInUp}
+                className="rounded-2xl bg-dark-card/50 backdrop-blur-sm border border-white/10 overflow-hidden"
               >
-                <span className="text-lg font-semibold text-white pr-4">{faq.question}</span>
-                <motion.div
-                  animate={{ rotate: openId === faq.id ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
+                <button
+                  onClick={() => setOpenId(isOpen ? null : faq.id)}
+                  aria-expanded={isOpen}
+                  aria-controls={answerId}
+                  className="w-full p-6 flex items-center justify-between text-left cursor-pointer"
                 >
-                  <ChevronDown className="w-5 h-5 text-gray-400" />
-                </motion.div>
-              </button>
-              <AnimatePresence>
-                {openId === faq.id && (
+                  <span className="text-lg font-semibold text-white pr-4">{faq.question}</span>
                   <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
+                    animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
                   >
-                    <p className="px-6 pb-6 text-gray-400 leading-relaxed">{faq.answer}</p>
+                    <ChevronDown className="w-5 h-5 text-gray-400" />
                   </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+                </button>
+                {/* Always rendered (collapsed to height 0) so every answer is in the server HTML and
+                    matches the FAQPage JSON-LD. Unmounting closed answers would hide them from Google. */}
+                <motion.div
+                  id={answerId}
+                  initial={false}
+                  animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  aria-hidden={!isOpen}
+                  className="overflow-hidden"
+                >
+                  <p className="px-6 pb-6 text-gray-400 leading-relaxed">{faq.answer}</p>
+                </motion.div>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

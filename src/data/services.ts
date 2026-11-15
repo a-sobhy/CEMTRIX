@@ -9,6 +9,11 @@ export interface ServiceData {
     category: string;
     title: string;
     description: string;
+    /**
+     * <title> for /products/[id], before the " | Cemtrix AI" suffix: what the product is for cement
+     * plants, short enough that the full title stays under ~65 characters.
+     */
+    metaTitle: string;
     /** Meta description for /products/[id]: unique, cement-specific, at most ~160 characters. */
     metaDescription: string;
     fullDescription: string;
@@ -26,7 +31,8 @@ export const services: ServiceData[] = [
         title: "AI-Powered Learning Intelligence",
         description:
             "Identify gaps. Learn smarter. Assess progress. Grow continuously.\nEmpower your workforce with personalized learning, AI-assisted knowledge access, and competency-driven development powered by CEMTRIX.",
-        metaDescription: "SMARTCEM is CEMTRIX's AI learning platform for cement plants: find competency gaps, deliver personalized learning and give teams an AI technical assistant.",
+        metaTitle: "SMARTCEM – AI Learning Platform for Cement Plants",
+        metaDescription: "SMARTCEM is Cemtrix AI's learning platform for cement plants: find competency gaps, deliver personalized learning and give teams an AI technical assistant.",
         fullDescription: "SMARTCEM is an AI-powered Learning Intelligence platform purpose-built for the cement industry. It identifies workforce competency gaps, delivers personalized learning journeys, and provides an interactive AI assistant that gives employees instant access to technical knowledge, best practices, and operational guidance. By combining competency intelligence, institutional knowledge, and continuous assessment, SMARTCEM helps organizations accelerate workforce development, preserve critical expertise, and improve operational performance.",
         features: ["Competency Intelligence", "AI Learning Assistant", "10,000+ Knowledge Resources"],
         benefits: true,
@@ -77,7 +83,8 @@ export const services: ServiceData[] = [
         title: "AI-Powered Plant Intelligence",
         description:
             "Transform operational data into actionable intelligence. CEMTRIX connects production, energy, quality, maintenance, and business systems into a single AI-powered platform, delivering real-time KPI visibility, automated performance monitoring, and intelligent operational insights. By providing one source of truth across the entire plant, teams can make faster decisions, improve collaboration, and continuously optimize plant performance.",
-        metaDescription: "CEMTRIX Plant Intelligence unifies production, energy, quality and maintenance data for cement plants, with real-time KPIs, automated reports and AI insights.",
+        metaTitle: "AI Plant Intelligence for Cement Plants",
+        metaDescription: "Cemtrix AI Plant Intelligence unifies production, energy, quality and maintenance data for cement plants, with real-time KPIs, automated reports and AI insights.",
         fullDescription: "Transform your raw plant data into actionable intelligence. This platform integrates directly with your existing SCADA and DCS systems to provide a unified view of your entire operation. Using predictive modeling, it analyzes energy consumption patterns and production bottlenecks, offering recommendations that can improve overall equipment effectiveness (OEE) by up to 15%.",
         features: ["Live Plant Data Integration", "AI-Driven Insights", "Real-Time KPI Monitoring"],
         benefits: true,
@@ -145,6 +152,7 @@ export const services: ServiceData[] = [
         category: "Predictive Maintenance",
         title: "Condition Intelligence",
         description: "AI analysis of your existing sensors and condition reports: health scores, early warnings and maintenance decisions, no new hardware.",
+        metaTitle: "AI Predictive Maintenance for Cement Plants",
         metaDescription: "AI predictive maintenance for cement plants: health scores, early warnings and maintenance decisions from your existing sensors and reports. No new hardware.",
         fullDescription: "AI analysis of your existing sensors and condition reports: health scores, early warnings and maintenance decisions, no new hardware.",
         features: [],

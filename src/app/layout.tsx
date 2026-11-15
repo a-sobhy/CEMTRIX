@@ -2,6 +2,7 @@ import { Footer } from "@/components/Footer";
 import { GoToTop } from "@/components/GoToTop";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
+import { baseOpenGraph, HOME_DESCRIPTION, HOME_TITLE, SITE_NAME, SITE_URL } from "@/lib/site";
 import { organizationJsonLd } from "@/lib/structured-data";
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
@@ -20,17 +21,19 @@ const figtree = Figtree({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cemtrix.ai"),
+  metadataBase: new URL(SITE_URL),
+  // title.default is the home page title (app/page.tsx sets none). The template applies to child routes only.
   title: {
-    default:
-      "CEMTRIX | AI Platform for Cement Plant Intelligence & Predictive Maintenance",
-    template: "%s | CEMTRIX",
+    default: HOME_TITLE,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "CEMTRIX helps cement plants improve workforce capability, plant performance, and equipment reliability with AI-powered learning, operational intelligence, and predictive maintenance.",
+  description: HOME_DESCRIPTION,
   alternates: {
     canonical: "/",
   },
+  // Shared by every page. Pages that set their own openGraph/twitter must spread these back in.
+  openGraph: baseOpenGraph,
+  twitter: { card: "summary" },
 };
 
 export default function RootLayout({
