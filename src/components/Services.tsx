@@ -61,16 +61,17 @@ export function Services() {
             variants={fadeInUp}
             className="text-3xl lg:text-5xl font-bold mt-4 mb-6"
           >
-            <span className="text-white">AI Solutions That Take Your</span>
+            <span className="text-white">Integrated AI Solutions</span>
             <br />
-            <span className="gradient-text">Business to the Next Level</span>
+            <span className="gradient-text">Built for Cement Plants</span>
           </motion.h2>
           <motion.p
             variants={fadeInUp}
             className="text-gray-400 text-md lg:text-xl max-w-2xl mx-auto"
           >
-            We design, develop, and implement automation tools that help you
-            work smarter, not harder
+            From workforce learning to plant performance and predictive
+            maintenance, Cemtrix AI turns your plant&apos;s data and expertise
+            into measurable business value.
           </motion.p>
         </motion.div>
 
