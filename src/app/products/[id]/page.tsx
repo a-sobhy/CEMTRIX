@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!service) return {};
 
     return {
-        title: `${service.category} – ${service.title}`,
+        title: service.metaTitle,
         description: service.metaDescription,
         alternates: { canonical: `/products/${service.id}` },
         // Products the site doesn't link to yet (readMore: false) have no full detail page:

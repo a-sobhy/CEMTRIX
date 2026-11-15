@@ -94,7 +94,7 @@ export function Testimonials() {
                   <Star key={i} className="w-5 h-5 fill-yellow-500 text-yellow-500" />
                 ))}
               </div>
-              <p className="text-gray-300 text-lg mb-6 leading-relaxed">"{t.quote}"</p>
+              <p className="text-gray-300 text-lg mb-6 leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
               <div className="flex items-center gap-4">
                 <img src={t.image} alt={t.author} className="w-12 h-12 rounded-full object-cover" />
                 <div>

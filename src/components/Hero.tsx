@@ -41,7 +41,7 @@ export function Hero() {
               className="hero-in font-normal text-[#F8FAFC] mx-auto lg:mx-0 leading-relaxed"
               style={{ animationDelay: "0.2s" }}
             >
-              CEMTRIX delivers intelligent solutions across workforce
+              Cemtrix AI delivers intelligent solutions across workforce
               development, plant performance, and predictive maintenance
               turning operational data and organizational knowledge into
               measurable business value.

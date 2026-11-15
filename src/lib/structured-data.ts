@@ -1,22 +1,43 @@
 import type { FaqItem } from '@/data/faqs';
 import type { ServiceData } from '@/data/services';
 
-import { SITE_URL } from './site';
+import { SITE_NAME, SITE_URL } from './site';
 
 type JsonLdObject = Record<string, unknown>;
 
 const ORGANIZATION_ID = `${SITE_URL}/#organization`;
+const WEBSITE_ID = `${SITE_URL}/#website`;
 
+/**
+ * `name` is "Cemtrix AI", the same as the <title>, og:site_name and WebSite name, so every signal
+ * names the brand the same way. The all-caps wordmark and other spellings go in `alternateName`.
+ * When the company has real public profiles (LinkedIn, X, YouTube, Crunchbase), add them as
+ * `sameAs: [...]`. Real URLs only, never placeholders.
+ */
 export function organizationJsonLd(): JsonLdObject {
     return {
         '@context': 'https://schema.org',
         '@type': 'Organization',
         '@id': ORGANIZATION_ID,
-        name: 'CEMTRIX',
+        name: SITE_NAME,
+        alternateName: ['CEMTRIX', 'Cemtrix', 'CemtrixAI'],
         url: SITE_URL,
         logo: `${SITE_URL}/assets/logo.png`,
         description:
-            'CEMTRIX is an AI-powered industrial technology company that helps cement plants improve workforce capability, plant performance and equipment reliability with AI-powered learning, operational intelligence and predictive maintenance.',
+            'Cemtrix AI (CEMTRIX) is an AI-powered industrial technology company that helps cement plants improve workforce capability, plant performance and equipment reliability with AI-powered learning, operational intelligence and predictive maintenance.',
+    };
+}
+
+/** Home page only: Google reads the site name from WebSite markup on the home page. */
+export function websiteJsonLd(): JsonLdObject {
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        '@id': WEBSITE_ID,
+        name: SITE_NAME,
+        alternateName: 'CEMTRIX',
+        url: `${SITE_URL}/`,
+        publisher: { '@id': ORGANIZATION_ID },
     };
 }
 
@@ -35,7 +56,7 @@ export function serviceJsonLd(service: ServiceData): JsonLdObject {
         category: 'Industrial AI software for cement plants',
         description: service.fullDescription,
         url: `${SITE_URL}/products/${service.id}`,
-        provider: { '@type': 'Organization', '@id': ORGANIZATION_ID, name: 'CEMTRIX', url: SITE_URL },
+        provider: { '@type': 'Organization', '@id': ORGANIZATION_ID, name: SITE_NAME, url: SITE_URL },
         areaServed: 'Worldwide',
     };
 }
