@@ -35,7 +35,13 @@ export function buildVCard() {
     `ORG:${esc(c.company)}`,
     `TITLE:${esc(c.title)}`,
     `TEL;TYPE=CELL,VOICE,PREF:${c.mobile}`,
-    `TEL;TYPE=WORK,VOICE:${c.phone}`,
+    // Phone and WhatsApp numbers are saved under the custom label "Phone", not "work". iPhone reads the
+    // label from itemN.X-ABLabel; Android turns an X- type into a custom label. Keep X-Phone the only
+    // type: Android uses the first one.
+    `item1.TEL;TYPE=X-Phone:${c.phone}`,
+    "item1.X-ABLabel:Phone",
+    `item2.TEL;TYPE=X-Phone:${c.whatsapp}`,
+    "item2.X-ABLabel:Phone",
     `EMAIL;TYPE=INTERNET,WORK:${c.email}`,
     `URL:${c.website}`,
     `URL;TYPE=LinkedIn:${c.linkedin}`,
