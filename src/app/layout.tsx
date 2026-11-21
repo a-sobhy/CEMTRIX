@@ -2,6 +2,7 @@ import { Footer } from "@/components/Footer";
 import { GoToTop } from "@/components/GoToTop";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
+import { SiteChrome } from "@/components/SiteChrome";
 import { baseOpenGraph, HOME_DESCRIPTION, HOME_TITLE, SITE_NAME, SITE_URL } from "@/lib/site";
 import { organizationJsonLd } from "@/lib/structured-data";
 import type { Metadata } from "next";
@@ -48,12 +49,16 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <JsonLd data={organizationJsonLd()} />
-        <Header />
+        <SiteChrome>
+          <Header />
+        </SiteChrome>
         <main className="flex-1">
           {children}
         </main>
-        <Footer />
-        <GoToTop />
+        <SiteChrome>
+          <Footer />
+          <GoToTop />
+        </SiteChrome>
 
         {/* Google Tag Manager: lazyOnload keeps its ~180 KB out of the critical path. Trade-off:
             visits that end within the first second or two aren't recorded. */}
