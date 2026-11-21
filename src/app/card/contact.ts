@@ -7,7 +7,7 @@ export const contact = {
   title: "CEO",
   company: "CEMTRIX AI",
   mobile: "+971547294934",
-  phone: "+201009852737",
+  phone: "+201288827427",
   whatsapp: "+201009852737",
   email: "mahmoud.wageeh@cemtrix.ai",
   website: "https://cemtrix.ai",
