@@ -16,7 +16,11 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: "#060E21" };
 
 const tel = (n: string) => `tel:${n}`;
-const pretty = (n: string) => n.replace(/^\+20(\d{2})(\d{4})(\d{4})$/, "+20 $1 $2 $3");
+// Group digits for display: Egypt +20 12 3456 7890, UAE +971 54 123 4567.
+const pretty = (n: string) =>
+  n
+    .replace(/^\+20(\d{2})(\d{4})(\d{4})$/, "+20 $1 $2 $3")
+    .replace(/^\+971(\d{2})(\d{3})(\d{4})$/, "+971 $1 $2 $3");
 const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   `${contact.address.street}, ${contact.address.city}`
 )}`;
@@ -25,7 +29,7 @@ type Row = { label: string; value: string; href: string; icon: keyof typeof icon
 
 const rows: Row[] = [
   { label: "Mobile", value: pretty(contact.mobile), href: tel(contact.mobile), icon: "phone" },
-  { label: "WhatsApp", value: pretty(contact.mobile), href: `https://wa.me/${contact.mobile.replace("+", "")}`, icon: "chat", external: true },
+  { label: "WhatsApp", value: pretty(contact.whatsapp), href: `https://wa.me/${contact.whatsapp.replace("+", "")}`, icon: "chat", external: true },
   { label: "Phone", value: pretty(contact.phone), href: tel(contact.phone), icon: "phone" },
   { label: "Email", value: contact.email, href: `mailto:${contact.email}`, icon: "mail" },
   { label: "Website", value: contact.website.replace("https://", ""), href: contact.website, icon: "globe", external: true },
